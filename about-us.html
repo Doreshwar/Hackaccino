@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - TT Tour Planet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary-color: #3AADA8;
+      --dark-blue: #0a2540;
+      --light-blue: #1a3550;
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --text-gray: #777777;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text-gray);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    
+    .copyright{
+      margin-left: 41%;
+
+    }
+
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark-blue);
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .section-subtitle {
+      display: block;
+      font-style: italic;
+      color: var(--text-gray);
+      margin-bottom: 5px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+    }
+
+    .section-title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1000;
+      transition: var(--transition);
+      background-color: transparent;
+    }
+
+    header.scrolled {
+      background-color: var(--dark-blue);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      margin-left: -38px;
+      padding: 25px;
+      width: 250px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo h1 {
+      color: var(--white);
+      font-size: 24px;
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+
+    
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      margin-right: 20px;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      font-size: 14px;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover::after,
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    .login-button {
+        margin-left: 25px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .login-button:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .signup-button {
+      margin-left: 15px;
+      border-color: white;
+      border-style: solid;
+      border-width: 1px;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .signup-button:hover {
+      border-style: none;
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    /* Hero Section */
+    .hero {
+      height: 50vh;
+      background: linear-gradient(to bottom, rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.6)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      padding-left: 50px;
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    /* About Section */
+    .about {
+      padding: 100px 0 50px;
+      background-color: var(--white);
+    }
+
+    .about-container {
+      display: flex;
+      gap: 50px;
+      align-items: flex-start;
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-image {
+      flex: 1;
+      height: 550px;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Mission Section */
+    .mission {
+      padding: 80px 0;
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    .mission-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mission h2 {
+      color: var(--white);
+      font-size: 48px;
+      margin-bottom: 30px;
+    }
+
+    .mission p {
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 20px;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-icon {
+      font-size: 36px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 30px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links ul {
+      display: flex;
+    }
+
+    .footer-links ul li {
+      margin-left: 20px;
+    }
+
+    .footer-links ul li a {
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .footer-links ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .about-container {
+        flex-direction: column;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header .container {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      nav ul {
+        margin-right: 0;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      nav ul li {
+        margin-left: 15px;
+      }
+
+      .hero-content {
+        padding-left: 20px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide-in-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide-in-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="1.png">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" >Home</a></li>
+          <li><a href="about-us.html" class="active">About us</a></li>
+          <li><a href="login.html">Tours</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="login.html" class="login-button">Login</a>
+        <a href="signup.html" class="signup-button">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="animate-text">About Us</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-container">
+        <div class="about-content fade-in">
+          <span class="section-subtitle">a few words about</span>
+          <h2 class="section-title">Who We Are</h2>
+          <p>We are a group of 4 people, Abhishek, Aditya, Gaurish, Manthan, and together we are Hack 219.</p>
+          <p>All of us are in the first years of our bachelorate. Being new in the tech field, we started learning HTML CSS basics throughout the year participating in events and hackathons all along.</p>
+          <p>When we heard about Hackaccino, we knew we wanted to be here and give this idea a solid formation. We’re not a big corporation. We’re just four regular people who’ve poured our experiences, tips, and a whole lot of heart into this site — from hidden gems and must-see destinations to budget hacks and travel guides you can actually trust. Whether you're planning your first solo trip or a wild getaway with friends, we’re here to help you make the most of it.</p>
+        </div>
+        <div class="about-image slide-in-right">
+          <img src="about.png" alt="Team member working on laptop">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission" id="mission">
+    <div class="container">
+      <div class="mission-container fade-in">
+        <span class="section-subtitle" style="color: #e0e0e0;">we hope you share our</span>
+        <h2 class="section-title">Mission & Vision</h2>
+        <p>To inspire, guide, and empower every traveler to explore the world with curiosity, confidence, and a sense of adventure. We believe that travel is more than just ticking off places on a map — it's about the memories you make, the people you meet, and the stories you collect along the way.</p>        
+        <p>Through honest insights, helpful guides, and real experiences, we aim to make travel more accessible, meaningful, and fun for everyone — especially young explorers like us. Whether you're a spontaneous backpacker, a weekend getaway lover, or just someone dreaming of their next escape, whether you're on a budget or want a once in a lifetime full fledged VIP experience, we’re here to help you make it happen.</p>
+        <p>Let’s make every journey unforgettable — one trip at a time. 🌍✨</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <h3>Affordable Travels</h3>
+          <p>Experience unforgettable journeys with Sanchari — where amazing travel meets affordable prices.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3>Guided Experiences</h3>
+          <p>Explore with confidence through Sanchari’s expertly guided journeys, curated for deeper connection and local insight.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-percentage"></i>
+          </div>
+          <h3>Group Discounts</h3>
+          <p>"Travel together, save together — enjoy exclusive group discounts with Sanchari for unforgettable shared adventures."</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>Guest Support</h3>
+          <p>24/7 dedicated guest support for seamless travel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        <p>Copyright © 2025 Sanchari</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('nav a, .footer-links a');
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href.startsWith('#') && href !== '#') {
+          e.preventDefault();
+          const targetSection = document.querySelector(href);
+          
+          if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 100;
+            
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Animate elements on scroll
+    const animateElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+    
+    function checkScroll() {
+      animateElements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    }
+    
+    // Call the animation function on scroll
+    window.addEventListener('scroll', checkScroll);
+    
+    // Call once on page load to animate elements already in view
+    window.addEventListener('load', checkScroll);
+
+    // Interactive feature cards
+    const featureCards = document.querySelectorAll('.feature-card');
+    
+    featureCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.05)';
+        this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+        
+        // Change icon color
+        const icon = this.querySelector('.feature-icon i');
+        icon.style.color = '#2c8a86';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+        this.style.boxShadow = '';
+        
+        // Reset icon color
+        const icon = this.querySelector('.feature-icon i');
+        icon.style.color = '';
+      });
+    });
+
+    // Interactive mission section
+    const missionSection = document.querySelector('.mission');
+    
+    missionSection.addEventListener('mouseenter', function() {
+      this.style.background = 'linear-gradient(135deg, #3AADA8 0%, #2c8a86 100%)';
+    });
+    
+    missionSection.addEventListener('mouseleave', function() {
+      this.style.background = '';
+    });
+
+    // Add click interaction to about image
+    const aboutImage = document.querySelector('.about-image');
+    let isZoomed = false;
+    
+    aboutImage.addEventListener('click', function() {
+      if (!isZoomed) {
+        this.style.transform = 'scale(1.1)';
+        this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+        isZoomed = true;
+      } else {
+        this.style.transform = '';
+        this.style.boxShadow = '';
+        isZoomed = false;
+      }
+    });
+
+    // Add tooltip to phone button
+    const phoneButton = document.querySelector('.phone-button');
+    
+    // Create tooltip element
+    const tooltip = document.createElement('div');
+    tooltip.textContent = 'Call us now!';
+    tooltip.style.position = 'absolute';
+    tooltip.style.backgroundColor = '#333';
+    tooltip.style.color = 'white';
+    tooltip.style.padding = '5px 10px';
+    tooltip.style.borderRadius = '4px';
+    tooltip.style.fontSize = '12px';
+    tooltip.style.bottom = '-30px';
+    tooltip.style.left = '50%';
+    tooltip.style.transform = 'translateX(-50%)';
+    tooltip.style.opacity = '0';
+    tooltip.style.transition = 'opacity 0.3s ease';
+    tooltip.style.pointerEvents = 'none';
+    
+    phoneButton.style.position = 'relative';
+    phoneButton.appendChild(tooltip);
+    
+    phoneButton.addEventListener('mouseenter', function() {
+      tooltip.style.opacity = '1';
+    });
+    
+    phoneButton.addEventListener('mouseleave', function() {
+      tooltip.style.opacity = '0';
+    });
+
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      const heroSection = document.querySelector('.hero');
+      
+      if (scrollPosition < window.innerHeight) {
+        heroSection.style.backgroundPositionY = `calc(50% + ${scrollPosition * 0.5}px)`;
+      }
+    });
+
+    // Add typing effect to hero title
+    const heroTitle = document.querySelector('.hero-content h1');
+    const originalText = heroTitle.textContent;
+    heroTitle.textContent = '';
+    
+    let i = 0;
+    function typeWriter() {
+      if (i < originalText.length) {
+        heroTitle.textContent += originalText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    
+    // Start typing effect when page loads
+    window.addEventListener('load', function() {
+      setTimeout(typeWriter, 500);
+    });
+  </script>
+</body>
+</html>

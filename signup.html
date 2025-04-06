@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Sanchari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary-color: #3AADA8;
+      --dark-blue: #0a2540;
+      --light-blue: #1a3550;
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --text-gray: #777777;
+      --error-color: #e74c3c;
+      --success-color: #2ecc71;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text-gray);
+      overflow-x: hidden;
+      background: linear-gradient(to bottom, rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.6)), url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark-blue);
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /*logo*/
+    /*logo*/
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      padding: 25px;
+      width: 250px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+    .logo img{
+        width: 100%;
+    }
+
+    
+    /* Signup Form Styles */
+    .signup-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 550px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .signup-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .signup-header h2 {
+      font-size: 36px;
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+    }
+
+    .signup-header .section-subtitle {
+      display: block;
+      font-style: italic;
+      color: var(--text-gray);
+      margin-bottom: 5px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--dark-blue);
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(58, 173, 168, 0.2);
+      outline: none;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 15px;
+      top: 42px;
+      cursor: pointer;
+      color: var(--text-gray);
+      transition: var(--transition);
+    }
+
+    .password-toggle:hover {
+      color: var(--primary-color);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-footer {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+    }
+
+    .signup-footer a {
+      color: var(--primary-color);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .signup-footer a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .signup-footer a:hover::after {
+      width: 100%;
+    }
+
+    .error-message {
+      color: var(--error-color);
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .success-message {
+      color: var(--success-color);
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+      text-align: center;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: rgba(46, 204, 113, 0.1);
+    }
+
+    /* Animation for form elements */
+    .form-group {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .form-group:nth-child(1) {
+      animation: fadeInUp 0.5s forwards 0.2s;
+    }
+
+    .form-group:nth-child(2) {
+      animation: fadeInUp 0.5s forwards 0.3s;
+    }
+
+    .form-group:nth-child(3) {
+      animation: fadeInUp 0.5s forwards 0.4s;
+    }
+
+    .form-group:nth-child(4) {
+      animation: fadeInUp 0.5s forwards 0.5s;
+    }
+
+    .form-group:nth-child(5) {
+      animation: fadeInUp 0.5s forwards 0.6s;
+    }
+
+    .form-group:nth-child(6) {
+      animation: fadeInUp 0.5s forwards 0.7s;
+    }
+
+    .btn-container {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s forwards 0.8s;
+    }
+
+    .signup-footer {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s forwards 0.9s;
+    }
+
+    /* Decorative elements */
+    .decoration {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: rgba(58, 173, 168, 0.1);
+      z-index: -1;
+    }
+
+    .decoration-1 {
+      top: -100px;
+      right: -100px;
+    }
+
+    .decoration-2 {
+      bottom: -100px;
+      left: -100px;
+    }
+
+    /* Checkbox styles */
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .checkbox-group input {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .checkbox-group label {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    /* Success modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      transform: translateY(20px);
+      transition: var(--transition);
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-icon {
+      font-size: 60px;
+      color: var(--success-color);
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .modal-text {
+      margin-bottom: 20px;
+    }
+
+    .modal-btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .modal-btn:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .signup-container {
+        padding: 30px 20px;
+      }
+
+      .signup-header h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <div class="logo">
+        <img src="1.png">
+    </div>
+ 
+
+  <!-- Signup Section -->
+  <div class="signup-container">
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    
+    <div class="signup-header">
+      <span class="section-subtitle">join our community</span>
+      <h2>Create Account</h2>
+    </div>
+    
+    <form id="signupForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+          <div class="error-message" id="firstNameError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+          <div class="error-message" id="lastNameError"></div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <div class="error-message" id="emailError"></div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+          <div class="error-message" id="phoneError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" name="country" required>
+            <option value="" disabled selected>Select your country</option>
+            <option value="USA">United States</option>
+            <option value="UK">United Kingdom</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+            <option value="India">India</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+            <option value="Italy">Italy</option>
+            <option value="Spain">Spain</option>
+            <option value="Japan">Japan</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="error-message" id="countryError"></div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="travelPreference">Travel Preference</label>
+        <select id="travelPreference" name="travelPreference">
+          <option value="" disabled selected>What type of travel do you prefer?</option>
+          <option value="Beach">Beach Vacations</option>
+          <option value="Adventure">Adventure Travel</option>
+          <option value="Cultural">Cultural Experiences</option>
+          <option value="Luxury">Luxury Travel</option>
+          <option value="Family">Family Trips</option>
+          <option value="Cruise">Cruises</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required>
+        <i class="fas fa-eye password-toggle" id="passwordToggle"></i>
+        <div class="error-message" id="passwordError"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+        <i class="fas fa-eye password-toggle" id="confirmPasswordToggle"></i>
+        <div class="error-message" id="confirmPasswordError"></div>
+      </div>
+      
+      <div class="checkbox-group">
+        <input type="checkbox" id="newsletter" name="newsletter" checked>
+        <label for="newsletter">Subscribe to our newsletter for travel deals and updates</label>
+      </div>
+      
+      <div class="checkbox-group">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the <a href="#" class="terms-link">Terms and Conditions</a></label>
+        <div class="error-message" id="termsError"></div>
+      </div>
+      
+      <div class="btn-container">
+        <button type="submit" class="btn" id="signupButton">CREATE ACCOUNT</button>
+        <div class="success-message" id="signupSuccess"></div>
+      </div>
+    </form>
+    
+    <div class="signup-footer">
+      <p>Already have an account? <a href="login.html" id="loginLink">Login here</a></p>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <div class="modal-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3 class="modal-title">Registration Successful!</h3>
+      <p class="modal-text">Thank you for joining Tour Planet. Your account has been created successfully.</p>
+      <button class="modal-btn" id="modalCloseBtn">CONTINUE</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Header scroll effect
+      const header = document.querySelector("header");
+      
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Password visibility toggle
+      const passwordToggle = document.getElementById("passwordToggle");
+      const passwordInput = document.getElementById("password");
+      const confirmPasswordToggle = document.getElementById("confirmPasswordToggle");
+      const confirmPasswordInput = document.getElementById("confirmPassword");
+      
+      function togglePasswordVisibility(input, toggle) {
+        if (input.type === "password") {
+          input.type = "text";
+          toggle.classList.remove("fa-eye");
+          toggle.classList.add("fa-eye-slash");
+        } else {
+          input.type = "password";
+          toggle.classList.remove("fa-eye-slash");
+          toggle.classList.add("fa-eye");
+        }
+        
+        // Add pulse animation
+        toggle.style.animation = "none";
+        setTimeout(() => {
+          toggle.style.animation = "pulse 0.5s";
+        }, 5);
+      }
+      
+      passwordToggle.addEventListener("click", () => {
+        togglePasswordVisibility(passwordInput, passwordToggle);
+      });
+      
+      confirmPasswordToggle.addEventListener("click", () => {
+        togglePasswordVisibility(confirmPasswordInput, confirmPasswordToggle);
+      });
+      
+      // Add keyframe animation for pulse
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.2); }
+          100% { transform: scale(1); }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      // Form validation and submission
+      const signupForm = document.getElementById("signupForm");
+      const firstNameInput = document.getElementById("firstName");
+      const lastNameInput = document.getElementById("lastName");
+      const emailInput = document.getElementById("email");
+      const phoneInput = document.getElementById("phone");
+      const countryInput = document.getElementById("country");
+      const termsCheckbox = document.getElementById("terms");
+      const successModal = document.getElementById("successModal");
+      const modalCloseBtn = document.getElementById("modalCloseBtn");
+      
+      // Error message elements
+      const firstNameError = document.getElementById("firstNameError");
+      const lastNameError = document.getElementById("lastNameError");
+      const emailError = document.getElementById("emailError");
+      const phoneError = document.getElementById("phoneError");
+      const countryError = document.getElementById("countryError");
+      const passwordError = document.getElementById("passwordError");
+      const confirmPasswordError = document.getElementById("confirmPasswordError");
+      const termsError = document.getElementById("termsError");
+      
+      signupForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        // Reset error messages
+        const errorElements = document.querySelectorAll(".error-message");
+        errorElements.forEach(el => el.style.display = "none");
+        
+        let isValid = true;
+        
+        // Validate first name
+        if (firstNameInput.value.trim() === "") {
+          firstNameError.textContent = "First name is required";
+          firstNameError.style.display = "block";
+          shakeElement(firstNameInput);
+          isValid = false;
+        }
+        
+        // Validate last name
+        if (lastNameInput.value.trim() === "") {
+          lastNameError.textContent = "Last name is required";
+          lastNameError.style.display = "block";
+          shakeElement(lastNameInput);
+          isValid = false;
+        }
+        
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailError.textContent = "Please enter a valid email address";
+          emailError.style.display = "block";
+          shakeElement(emailInput);
+          isValid = false;
+        }
+        
+        // Validate phone (optional but if provided, must be valid)
+        if (phoneInput.value.trim() !== "") {
+          const phoneRegex = /^\+?[0-9\s\-$$$$]{8,20}$/;
+          if (!phoneRegex.test(phoneInput.value.trim())) {
+            phoneError.textContent = "Please enter a valid phone number";
+            phoneError.style.display = "block";
+            shakeElement(phoneInput);
+            isValid = false;
+          }
+        }
+        
+        // Validate country
+        if (countryInput.value === "") {
+          countryError.textContent = "Please select your country";
+          countryError.style.display = "block";
+          shakeElement(countryInput);
+          isValid = false;
+        }
+        
+        // Validate password
+        if (passwordInput.value.length < 8) {
+          passwordError.textContent = "Password must be at least 8 characters";
+          passwordError.style.display = "block";
+          shakeElement(passwordInput);
+          isValid = false;
+        } else if (!/[A-Z]/.test(passwordInput.value)) {
+          passwordError.textContent = "Password must contain at least one uppercase letter";
+          passwordError.style.display = "block";
+          shakeElement(passwordInput);
+          isValid = false;
+        } else if (!/[0-9]/.test(passwordInput.value)) {
+          passwordError.textContent = "Password must contain at least one number";
+          passwordError.style.display = "block";
+          shakeElement(passwordInput);
+          isValid = false;
+        }
+        
+        // Validate password confirmation
+        if (passwordInput.value !== confirmPasswordInput.value) {
+          confirmPasswordError.textContent = "Passwords do not match";
+          confirmPasswordError.style.display = "block";
+          shakeElement(confirmPasswordInput);
+          isValid = false;
+        }
+        
+        // Validate terms agreement
+        if (!termsCheckbox.checked) {
+          termsError.textContent = "You must agree to the terms and conditions";
+          termsError.style.display = "block";
+          shakeElement(termsCheckbox);
+          isValid = false;
+        }
+        
+        if (isValid) {
+          // Show loading state
+          const signupButton = document.getElementById("signupButton");
+          signupButton.disabled = true;
+          signupButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> CREATING ACCOUNT...';
+          
+          // Simulate form submission (would be an API call in a real app)
+          setTimeout(() => {
+            // Show success modal
+            successModal.classList.add("active");
+            
+            // Reset form
+            signupForm.reset();
+            
+            // Reset button state
+            signupButton.disabled = false;
+            signupButton.innerHTML = 'CREATE ACCOUNT';
+          }, 1500);
+        }
+      });
+      
+      // Close modal and redirect
+      modalCloseBtn.addEventListener("click", () => {
+        successModal.classList.remove("active");
+        // In a real app, you might redirect to login or dashboard
+        // window.location.href = "login.html";
+      });
+      
+      // Shake animation for invalid inputs
+      function shakeElement(element) {
+        element.style.animation = "none";
+        setTimeout(() => {
+          element.style.animation = "shake 0.5s";
+        }, 5);
+      }
+      
+      // Add keyframe animation for shake
+      const shakeStyle = document.createElement("style");
+      shakeStyle.textContent = `
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+          20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+      `;
+      document.head.appendChild(shakeStyle);
+      
+      // Login link animation
+      const loginLink = document.getElementById("loginLink");
+      
+      loginLink.addEventListener("mouseenter", () => {
+        loginLink.style.animation = "pulse 0.5s";
+      });
+      
+      loginLink.addEventListener("mouseleave", () => {
+        loginLink.style.animation = "none";
+      });
+      
+      // Terms link animation
+      const termsLink = document.querySelector(".terms-link");
+      
+      termsLink.addEventListener("mouseenter", () => {
+        termsLink.style.animation = "pulse 0.5s";
+      });
+      
+      termsLink.addEventListener("mouseleave", () => {
+        termsLink.style.animation = "none";
+      });
+      
+      termsLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Terms and Conditions will be displayed here.");
+      });
+      
+      // Input focus effects
+      const inputs = document.querySelectorAll("input, select");
+      
+      inputs.forEach(input => {
+        input.addEventListener("focus", () => {
+          if (input.type !== "checkbox") {
+            input.parentElement.style.transform = "translateY(-5px)";
+            input.style.boxShadow = "0 5px 15px rgba(58, 173, 168, 0.2)";
+          }
+        });
+        
+        input.addEventListener("blur", () => {
+          if (input.type !== "checkbox") {
+            input.parentElement.style.transform = "translateY(0)";
+            input.style.boxShadow = "none";
+          }
+        });
+      });
+      
+      // Add transition for form groups
+      const formGroups = document.querySelectorAll(".form-group");
+      formGroups.forEach(group => {
+        group.style.transition = "transform 0.3s ease";
+      });
+      
+      // Floating labels animation
+      const formInputs = document.querySelectorAll(".form-group input, .form-group select");
+      
+      formInputs.forEach(input => {
+        input.addEventListener("input", () => {
+          if (input.value.trim() !== "") {
+            input.classList.add("has-value");
+          } else {
+            input.classList.remove("has-value");
+          }
+        });
+      });
+      
+      // Add ripple effect to buttons
+      const buttons = document.querySelectorAll(".btn, .modal-btn");
+      
+      buttons.forEach(button => {
+        button.addEventListener("click", function(e) {
+          const rect = this.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const ripple = document.createElement("span");
+          ripple.style.position = "absolute";
+          ripple.style.width = "0";
+          ripple.style.height = "0";
+          ripple.style.background = "rgba(255, 255, 255, 0.4)";
+          ripple.style.borderRadius = "50%";
+          ripple.style.transform = "translate(-50%, -50%)";
+          ripple.style.left = `${x}px`;
+          ripple.style.top = `${y}px`;
+          ripple.style.pointerEvents = "none";
+          
+          this.style.position = "relative";
+          this.style.overflow = "hidden";
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            ripple.style.width = "300px";
+            ripple.style.height = "300px";
+            ripple.style.opacity = "0";
+            ripple.style.transition = "all 0.8s";
+          }, 0);
+          
+          setTimeout(() => {
+            ripple.remove();
+          }, 800);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

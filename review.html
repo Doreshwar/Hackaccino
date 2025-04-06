@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews - Sanchari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary-color: #3AADA8;
+      --dark-blue: #0a2540;
+      --light-blue: #1a3550;
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --text-gray: #777777;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text-gray);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    
+    .copyright{
+      margin-left: 41%;
+
+    }
+
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark-blue);
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .section-subtitle {
+      display: block;
+      font-style: italic;
+      color: var(--text-gray);
+      margin-bottom: 5px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+    }
+
+    .section-title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1000;
+      transition: var(--transition);
+      background-color: transparent;
+    }
+
+    header.scrolled {
+      background-color: var(--dark-blue);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      margin-left: -38px;
+      padding: 25px;
+      width: 250px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo h1 {
+      color: var(--white);
+      font-size: 24px;
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+
+    .logo span {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      margin-right: 20px;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      font-size: 14px;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .login-button {
+        margin-left: 25px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .login-button:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .signup-button {
+      margin-left: 15px;
+      border-color: white;
+      border-style: solid;
+      border-width: 1px;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .signup-button:hover {
+      border-style: none;
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 50vh;
+      background: linear-gradient(to bottom, rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.5)), url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      padding-left: 50px;
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    /* Reviews Section */
+    .reviews-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .reviews-header {
+      text-align: left;
+      margin-bottom: 50px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .review-card {
+      padding: 30px;
+      border-radius: 8px;
+      transition: var(--transition);
+      background-color: var(--white);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .review-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-quote {
+      font-size: 16px;
+      font-style: italic;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 20px;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .review-stars {
+      color: #FFD700;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .reviewer-name {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      color: var(--dark-blue);
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 30px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links ul {
+      display: flex;
+    }
+
+    .footer-links ul li {
+      margin-left: 20px;
+    }
+
+    .footer-links ul li a {
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .footer-links ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Customize Button */
+    .customize-button {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--white);
+      color: var(--dark-blue);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      z-index: 100;
+      transition: var(--transition);
+    }
+
+    .customize-button:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header .container {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      nav ul {
+        margin-right: 0;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links ul {
+        margin-top: 20px;
+        justify-content: center;
+      }
+
+      .footer-links ul li:first-child {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .section-title {
+        font-size: 36px;
+      }
+
+      nav ul li {
+        margin-left: 15px;
+      }
+
+      .hero-content {
+        padding-left: 20px;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      display: flex;
+    }
+
+    .modal-content {
+      background-color: var(--white);
+      width: 90%;
+      max-width: 600px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      transform: translateY(50px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      padding: 20px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      position: relative;
+    }
+
+    .modal-header h3 {
+      color: var(--white);
+      margin-bottom: 0;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: var(--white);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 20px;
+    }
+
+    .modal-footer {
+      padding: 20px;
+      background-color: var(--light-gray);
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    /* Review Form Styles */
+    .review-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .review-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .review-form input,
+    .review-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .review-form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .star-rating {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .star-rating i {
+      color: #ddd;
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 5px;
+      transition: var(--transition);
+    }
+
+    .star-rating i.active {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="1.png">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About us</a></li>
+          <li><a href="login.html">Tours</a></li>
+          <li><a href="review.html" class="active">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="login.html" class="login-button">Login</a>
+        <a href="signup.html" class="signup-button">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="animate-text">Reviews</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="reviews-header fade-in">
+        <h2 class="section-title">What Our Clients Say</h2>
+      </div>
+      
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card fade-in">
+          <p class="review-quote">"Booking was simple, and customer support was excellent. The trip exceeded expectations. I’ll definitely book again with Sanchari."
+            </p>
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="reviewer-name">Aman Gangwar</div>
+        </div>
+        
+        <!-- Review 2 -->
+        <div class="review-card fade-in">
+          <p class="review-quote">"Excellent value for money! Well-planned itinerary and smooth travel. Wished for more free time, but overall a memorable trip."</p>
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="reviewer-name">Divyansh Vishwakarma </div>
+        </div>
+        
+        <!-- Review 3 -->
+        <div class="review-card fade-in">
+          <p class="review-quote">"Top-notch service from start to finish. Hotels, transport, and local experiences were perfectly arranged. Highly recommended for stress-free travel!"</p>
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="reviewer-name">Akshat Khemkha</div>
+        </div>
+        
+        <!-- Review 4 -->
+        <div class="review-card fade-in">
+          <p class="review-quote">"Loved exploring Mussoorie! The weather, the local food, and the charming streets made it a memorable hill station getaway. Will come back soon."</p>
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="reviewer-name">Kartik Gupta</div>
+        </div>
+        
+        <!-- Review 5 -->
+        <div class="review-card fade-in">
+          <p class="review-quote">"Incredible views, great accommodations, and friendly people all around. Couldn’t have asked for a better trip. Will definitely recommend to others."</p>
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="reviewer-name">Inesh Raj Panda</div>
+        </div>
+        
+        <!-- Review 6 -->
+        <div class="review-card fade-in">
+          <p class="review-quote">"Jim Corbett National Park was thrilling! We actually spotted a tiger. The safari was well-managed and super exciting for nature lovers."
+
+          </p>
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="reviewer-name">Vinayak Pradhan</div>
+        </div>
+      </div>
+      
+      <div class="text-center" style="margin-top: 40px; text-align: center;">
+        <button id="addReviewBtn" class="btn">SHARE YOUR EXPERIENCE</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customize Button -->
+  <div class="customize-button" id="customizeBtn">
+    <i class="fas fa-cog"></i>
+  </div>
+
+  <!-- Review Modal -->
+  <div class="modal" id="reviewModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Share Your Experience</h3>
+        <span class="modal-close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form class="review-form" id="reviewForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label>Your Rating</label>
+            <div class="star-rating" id="starRating">
+              <i class="far fa-star" data-rating="1"></i>
+              <i class="far fa-star" data-rating="2"></i>
+              <i class="far fa-star" data-rating="3"></i>
+              <i class="far fa-star" data-rating="4"></i>
+              <i class="far fa-star" data-rating="5"></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="review">Your Review</label>
+            <textarea id="review" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="submitReviewBtn">SUBMIT REVIEW</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customize Modal -->
+  <div class="modal" id="customizeModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Customize Page</h3>
+        <span class="modal-close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="bgColor">Background Color</label>
+          <input type="color" id="bgColor" value="#ffffff">
+        </div>
+        <div class="form-group">
+          <label for="textColor">Text Color</label>
+          <input type="color" id="textColor" value="#777777">
+        </div>
+        <div class="form-group">
+          <label for="accentColor">Accent Color</label>
+          <input type="color" id="accentColor" value="#3AADA8">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="applyCustomizeBtn">APPLY</button>
+        <button class="btn" id="resetCustomizeBtn" style="margin-left: 10px; background-color: #f44336;">RESET</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        <p>Copyright © 2025 Sanchari</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('nav a, .footer-links a');
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href.startsWith('#') && href !== '#') {
+          e.preventDefault();
+          const targetSection = document.querySelector(href);
+          
+          if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 100;
+            
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Animate elements on scroll
+    const animateElements = document.querySelectorAll('.fade-in');
+    
+    function checkScroll() {
+      animateElements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    }
+    
+    // Call the animation function on scroll
+    window.addEventListener('scroll', checkScroll);
+    
+    // Call once on page load to animate elements already in view
+    window.addEventListener('load', checkScroll);
+
+    // Review card hover effect
+    const reviewCards = document.querySelectorAll('.review-card');
+    
+    reviewCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px)';
+        this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+        this.style.boxShadow = '';
+      });
+    });
+
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      const heroSection = document.querySelector('.hero');
+      
+      if (scrollPosition < window.innerHeight) {
+        heroSection.style.backgroundPositionY = `calc(50% + ${scrollPosition * 0.5}px)`;
+      }
+    });
+
+    // Add typing effect to hero title
+    const heroTitle = document.querySelector('.hero-content h1');
+    const originalText = heroTitle.textContent;
+    heroTitle.textContent = '';
+    
+    let i = 0;
+    function typeWriter() {
+      if (i < originalText.length) {
+        heroTitle.textContent += originalText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    
+    // Start typing effect when page loads
+    window.addEventListener('load', function() {
+      setTimeout(typeWriter, 500);
+    });
+
+    // Modal functionality
+    const reviewModal = document.getElementById('reviewModal');
+    const customizeModal = document.getElementById('customizeModal');
+    const modalCloseButtons = document.querySelectorAll('.modal-close');
+    const addReviewBtn = document.getElementById('addReviewBtn');
+    const customizeBtn = document.getElementById('customizeBtn');
+    
+    // Open review modal
+    addReviewBtn.addEventListener('click', function() {
+      reviewModal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    });
+    
+    // Open customize modal
+    customizeBtn.addEventListener('click', function() {
+      customizeModal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    });
+    
+    // Close modals
+    modalCloseButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        reviewModal.classList.remove('active');
+        customizeModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      });
+    });
+    
+    // Close modals when clicking outside
+    window.addEventListener('click', function(e) {
+      if (e.target === reviewModal) {
+        reviewModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+      if (e.target === customizeModal) {
+        customizeModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    });
+
+    // Star rating functionality
+    const starRating = document.getElementById('starRating');
+    const stars = starRating.querySelectorAll('i');
+    let currentRating = 0;
+    
+    stars.forEach(star => {
+      star.addEventListener('mouseover', function() {
+        const rating = this.getAttribute('data-rating');
+        highlightStars(rating);
+      });
+      
+      star.addEventListener('mouseout', function() {
+        highlightStars(currentRating);
+      });
+      
+      star.addEventListener('click', function() {
+        currentRating = this.getAttribute('data-rating');
+        highlightStars(currentRating);
+      });
+    });
+    
+    function highlightStars(rating) {
+      stars.forEach(star => {
+        const starRating = star.getAttribute('data-rating');
+        
+        if (starRating <= rating) {
+          star.classList.remove('far');
+          star.classList.add('fas');
+          star.classList.add('active');
+        } else {
+          star.classList.remove('fas');
+          star.classList.add('far');
+          star.classList.remove('active');
+        }
+      });
+    }
+
+    // Submit review functionality
+    const submitReviewBtn = document.getElementById('submitReviewBtn');
+    const reviewForm = document.getElementById('reviewForm');
+    
+    submitReviewBtn.addEventListener('click', function() {
+      const name = document.getElementById('name').value;
+      const review = document.getElementById('review').value;
+      
+      if (name && review && currentRating > 0) {
+        // Create new review card
+        const newReview = document.createElement('div');
+        newReview.className = 'review-card fade-in active';
+        
+        // Add review content
+        newReview.innerHTML = `
+          <p class="review-quote">" ${review} "</p>
+          <div class="review-stars">
+            ${getStarIcons(currentRating)}
+          </div>
+          <div class="reviewer-name">${name}</div>
+        `;
+        
+        // Add hover effect to new review card
+        newReview.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px)';
+          this.style.boxShadow = '0 15px 30px rgba( 0, 0, 0, 0.1)'; 
+          this.style.transform = 'translateY(-10px)';
+          this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+        });
+        
+        newReview.addEventListener('mouseleave', function() {
+          this.style.transform = '';
+          this.style.boxShadow = '';
+        });
+        
+        // Add new review to the grid
+        const reviewsGrid = document.querySelector('.reviews-grid');
+        reviewsGrid.prepend(newReview);
+        
+        // Close modal and reset form
+        reviewModal.classList.remove('active');
+        document.body.style.overflow = '';
+        reviewForm.reset();
+        currentRating = 0;
+        highlightStars(0);
+        
+        // Show success message
+        alert('Thank you for your review!');
+      } else {
+        alert('Please fill in all fields and provide a rating.');
+      }
+    });
+    
+    function getStarIcons(rating) {
+      let stars = '';
+      for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+          stars += '<i class="fas fa-star"></i>';
+        } else {
+          stars += '<i class="far fa-star"></i>';
+        }
+      }
+      return stars;
+    }
+
+    // Customize page functionality
+    const applyCustomizeBtn = document.getElementById('applyCustomizeBtn');
+    const resetCustomizeBtn = document.getElementById('resetCustomizeBtn');
+    
+    applyCustomizeBtn.addEventListener('click', function() {
+      const bgColor = document.getElementById('bgColor').value;
+      const textColor = document.getElementById('textColor').value;
+      const accentColor = document.getElementById('accentColor').value;
+      
+      // Apply custom colors
+      document.documentElement.style.setProperty('--white', bgColor);
+      document.documentElement.style.setProperty('--text-gray', textColor);
+      document.documentElement.style.setProperty('--primary-color', accentColor);
+      
+      // Close modal
+      customizeModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    resetCustomizeBtn.addEventListener('click', function() {
+      // Reset to default colors
+      document.documentElement.style.setProperty('--white', '#ffffff');
+      document.documentElement.style.setProperty('--text-gray', '#777777');
+      document.documentElement.style.setProperty('--primary-color', '#3AADA8');
+      
+      // Reset color inputs
+      document.getElementById('bgColor').value = '#ffffff';
+      document.getElementById('textColor').value = '#777777';
+      document.getElementById('accentColor').value = '#3AADA8';
+      
+      // Close modal
+      customizeModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Add animation to review cards on hover
+    reviewCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const stars = this.querySelectorAll('.review-stars i');
+        
+        stars.forEach((star, index) => {
+          setTimeout(() => {
+            star.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+              star.style.transform = 'scale(1)';
+            }, 200);
+          }, index * 100);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explore Uttarakhand</title>
+  <link rel="stylesheet" href="styles.css"> <!-- optional external stylesheet -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .card-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card-buttons button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .wishlist {
+      background: #ffe0e0;
+      color: #d63031;
+    }
+
+    .wishlist.active {
+      background: #fab1a0;
+    }
+
+    .cart {
+      background: #dfffe2;
+      color: #2ecc71;
+    }
+
+    .cart.active {
+      background: #a3e4d7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Top Destinations in Uttarakhand</h1>
+  <div class="cards-container">
+    <!-- Card Template -->
+    <div class="card" data-name="Nainital">
+      <img src="images/nainital.jpg" alt="Nainital">
+      <div class="card-content">
+        <div class="card-title">Nainital</div>
+        <div class="card-buttons">
+          <button class="wishlist">♡ Wishlist</button>
+          <button class="cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-name="Mussoorie">
+      <img src="images/mussoorie.jpg" alt="Mussoorie">
+      <div class="card-content">
+        <div class="card-title">Mussoorie</div>
+        <div class="card-buttons">
+          <button class="wishlist">♡ Wishlist</button>
+          <button class="cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-name="Rishikesh">
+      <img src="images/rishikesh.jpg" alt="Rishikesh">
+      <div class="card-content">
+        <div class="card-title">Rishikesh</div>
+        <div class="card-buttons">
+          <button class="wishlist">♡ Wishlist</button>
+          <button class="cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <!-- Add more cards similarly -->
+  </div>
+
+  <script>
+    // Load saved state
+    document.addEventListener('DOMContentLoaded', () => {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+      document.querySelectorAll('.card').forEach(card => {
+        const name = card.dataset.name;
+        const wishBtn = card.querySelector('.wishlist');
+        const cartBtn = card.querySelector('.cart');
+
+        if (wishlist.includes(name)) wishBtn.classList.add('active');
+        if (cart.includes(name)) cartBtn.classList.add('active');
+
+        wishBtn.addEventListener('click', () => {
+          if (wishlist.includes(name)) {
+            wishlist.splice(wishlist.indexOf(name), 1);
+            wishBtn.classList.remove('active');
+          } else {
+            wishlist.push(name);
+            wishBtn.classList.add('active');
+          }
+          localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        });
+
+        cartBtn.addEventListener('click', () => {
+          if (cart.includes(name)) {
+            cart.splice(cart.indexOf(name), 1);
+            cartBtn.classList.remove('active');
+          } else {
+            cart.push(name);
+            cartBtn.classList.add('active');
+          }
+          localStorage.setItem('cart', JSON.stringify(cart));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

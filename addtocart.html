@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart - Sanchari</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* Base Styles */
+  :root {
+    --primary-color: #3AADA8;
+    --dark-blue: #0a2540;
+    --light-blue: #1a3550;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --text-gray: #777777;
+    --transition: all 0.3s ease;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-gray);
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .copyright{
+      margin-left: 41%;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-blue);
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  .btn:hover {
+    background-color: #2c8a86;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+
+  .btn-danger {
+    background-color: #e74c3c;
+  }
+
+  .btn-danger:hover {
+    background-color: #c0392b;
+  }
+
+  .btn-large {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+
+  /* Header Styles */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1000;
+    transition: var(--transition);
+    background-color: var(--dark-blue);
+  }
+
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    margin-left: -38px;
+    padding: 25px;
+    width: 250px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo h1 {
+    color: var(--white);
+    font-size: 24px;
+    margin-bottom: 0;
+    font-weight: 400;
+  }
+
+  .logo span {
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+    margin-right: 20px;
+  }
+
+  nav ul li {
+    margin-left: 30px;
+  }
+
+  nav ul li a {
+    color: var(--white);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    font-size: 14px;
+  }
+
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  /* Cart Icon */
+  .cart-icon {
+    position: relative;
+    margin-left: 20px;
+  }
+
+  .cart-icon a {
+    color: var(--white);
+    font-size: 20px;
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Page Content */
+  .page-content {
+    padding: 120px 0 60px;
+    min-height: calc(100vh - 100px);
+  }
+
+  .page-title {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .page-title h1 {
+    font-size: 48px;
+    color: var(--dark-blue);
+    position: relative;
+    display: inline-block;
+  }
+
+  .page-title h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+  }
+
+  /* Cart Section */
+  .cart-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+  }
+
+  .cart-items {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .cart-table th {
+    background-color: var(--light-gray);
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--dark-blue);
+  }
+
+  .cart-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .cart-item-image {
+    width: 100px;
+    height: 70px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+  }
+
+  .cart-item-image:hover {
+    transform: scale(1.05);
+  }
+
+  .cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cart-item-details h4 {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: var(--dark-blue);
+  }
+
+  .cart-item-details p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: var(--text-gray);
+  }
+
+  .cart-item-price {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 16px;
+  }
+
+  .cart-item-quantity {
+    display: flex;
+    align-items: center;
+  }
+
+  .quantity-btn {
+    width: 30px;
+    height: 30px;
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .quantity-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+
+  .quantity-input {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .cart-item-subtotal {
+    font-weight: 600;
+    color: var(--dark-blue);
+  }
+
+  .cart-item-remove {
+    color: #e74c3c;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 18px;
+  }
+
+  .cart-item-remove:hover {
+    color: #c0392b;
+    transform: scale(1.1);
+  }
+
+  /* Cart Summary */
+  .cart-summary {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    position: sticky;
+    top: 120px;
+  }
+
+  .cart-summary h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .summary-row:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 25px;
+  }
+
+  .summary-row.total {
+    font-weight: 600;
+    color: var(--dark-blue);
+    font-size: 18px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(58, 173, 168, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(58, 173, 168, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(58, 173, 168, 0);
+    }
+  }
+
+  .promo-code {
+    margin-top: 20px;
+  }
+
+  .promo-code h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .promo-form {
+    display: flex;
+  }
+
+  .promo-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+  }
+
+  .promo-btn {
+    padding: 10px 15px;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .promo-btn:hover {
+    background-color: var(--primary-color);
+  }
+
+  /* Empty Cart */
+  .empty-cart {
+    text-align: center;
+    padding: 50px 0;
+  }
+
+  .empty-cart i {
+    font-size: 60px;
+    color: var(--light-blue);
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+
+  .empty-cart h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .empty-cart p {
+    margin-bottom: 25px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Toast Notification */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 25px;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Confirmation Modal */
+  .confirmation-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .confirmation-modal.active {
+    opacity: 1;
+    display: flex;
+  }
+
+  .confirmation-content {
+    background-color: var(--white);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transform: translateY(50px);
+    transition: transform 0.3s ease;
+  }
+
+  .confirmation-modal.active .confirmation-content {
+    transform: translateY(0);
+  }
+
+  .confirmation-header {
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    position: relative;
+  }
+
+  .confirmation-header h3 {
+    color: var(--white);
+    margin-bottom: 0;
+  }
+
+  .confirmation-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .confirmation-close:hover {
+    transform: rotate(90deg);
+  }
+
+  .confirmation-body {
+    padding: 30px;
+    text-align: center;
+  }
+
+  .confirmation-body i {
+    font-size: 60px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+
+  .confirmation-body h4 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .confirmation-body p {
+    margin-bottom: 25px;
+  }
+
+  .confirmation-footer {
+    padding: 20px;
+    background-color: var(--light-gray);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 30px 0;
+  }
+
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-links ul {
+    display: flex;
+  }
+
+  .footer-links ul li {
+    margin-left: 20px;
+  }
+
+  .footer-links ul li a {
+    color: var(--white);
+    transition: var(--transition);
+  }
+
+  .footer-links ul li a:hover {
+    color: var(--primary-color);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .cart-item {
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: calc(var(--item-index) * 0.1s);
+    opacity: 0;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .cart-container {
+      grid-template-columns: 1fr;
+    }
+
+    .cart-summary {
+      position: static;
+      margin-top: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    header .container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav {
+      margin-top: 20px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    nav ul {
+      margin-right: 0;
+    }
+
+    .page-title h1 {
+      font-size: 36px;
+    }
+
+    .cart-table {
+      display: block;
+      overflow-x: auto;
+    }
+
+    footer .container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-links ul {
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .footer-links ul li:first-child {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    nav ul li {
+      margin-left: 15px;
+    }
+
+    .cart-item-image {
+      width: 80px;
+      height: 60px;
+    }
+
+    .cart-item-details h4 {
+      font-size: 14px;
+    }
+
+    .cart-item-details p {
+      font-size: 12px;
+    }
+
+    .quantity-btn {
+      width: 25px;
+      height: 25px;
+    }
+
+    .quantity-input {
+      width: 30px;
+      height: 25px;
+    }
+  }
+
+  /* New styles for distance calculations */
+  .distance-details {
+    margin-top: 20px;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    padding: 15px;
+  }
+
+  .distance-details h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--dark-blue);
+  }
+
+  .distance-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+  }
+
+  .distance-item:last-child {
+    border-bottom: none;
+  }
+
+  .multi-accommodation-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #ffeeba;
+  }
+
+  .multi-accommodation-warning i {
+    margin-right: 10px;
+    color: #f0ad4e;
+  }
+
+  .taxi-details {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+  }
+
+  .taxi-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .taxi-name {
+    font-weight: 500;
+  }
+
+  .taxi-price {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<!-- Header Section -->
+<header>
+  <div class="container">
+    <div class="logo">
+      <img src="1.png">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About us</a></li>
+        <li><a href="dehra.html">Tours</a></li>
+        <li><a href="review.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="cart-icon">
+        <a href="userdash.html"><i class="fas fa-heart"></i></a>
+        <span class="cart-count wishlist-count">0</span>
+      </div>
+      <div class="cart-icon">
+        <a href="addtocart.html"><i class="fas fa-shopping-cart"></i></a>
+        <span class="cart-count cart-count-number">0</span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Page Content -->
+<div class="page-content">
+  <div class="container">
+    <div class="page-title">
+      <h1>Your Shopping Cart</h1>
+    </div>
+    
+    <div id="cartContent">
+      <!-- Cart content will be loaded here dynamically -->
+    </div>
+  </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="confirmation-modal" id="confirmationModal">
+  <div class="confirmation-content">
+    <div class="confirmation-header">
+      <h3>Booking Confirmation</h3>
+      <span class="confirmation-close">&times;</span>
+    </div>
+    <div class="confirmation-body">
+      <i class="fas fa-check-circle"></i>
+      <h4>Thank You for Your Booking!</h4>
+      <p>Your tour package has been booked successfully. You will receive a confirmation email shortly with all the details.</p>
+      <p>Booking Reference: <strong id="bookingReference">TT-12345</strong></p>
+    </div>
+    <div class="confirmation-footer">
+      <button class="btn" id="continueShoppingBtn">Continue Shopping</button>
+      <button class="btn" id="viewBookingsBtn">View My Bookings</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">Item removed from cart!</div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        <p>Copyright © 2025 Sanchari</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Get cart and wishlist from localStorage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+  // Destination coordinates (latitude, longitude) - simulated data
+  const destinationCoordinates = {
+    'tour1': { lat: 30.375982, lng: 78.060173, name: "Robber's Cave" }, // Robber's Cave
+    'tour2': { lat: 30.387231, lng: 78.131606, name: "Sahastradhara" }, // Sahastradhara
+    'tour3': { lat: 30.3762, lng: 78.0742, name: "Malsi Deer Park" }, // Malsi Deer Park
+    'tour4': { lat: 30.199184, lng: 78.126097, name: "Lachhiwala Nature Park" }, // Lachhiwala Nature Park
+    'tour5': { lat: 30.1380, lng: 78.2938, name: "Trekking (Rishikesh)" }, // Trekking (Rishikesh)
+    'tour6': { lat: 30.3199264, lng: 78.103986, name: "Maldevta" }, // Maldevta
+    'tour7': { lat: 30.3165, lng: 78.0665, name: "Shikhar Fall" }, // Shikhar Fall
+    'tour8': { lat: 30.343769, lng: 77.999559, name: "Forest Research Institute" }, // Forest Research Institute
+    'tour9': { lat: 30.3572724, lng: 78.0166768, name: "Tapkeshwar Temple" }, // Tapkeshwar Temple
+    'tour10': { lat: 30.2875, lng: 78.0535, name: "Buddha Temple" }, // Buddha Temple
+    'tour11': { lat: 30.3426, lng: 78.0983, name: "Kalinga War Memorial" }, // Kalinga War Memorial
+    'tour12': { lat: 30.324329, lng: 78.041800, name: "Clock Tower" }, // Clock Tower
+    'tour13': { lat: 30.3180, lng: 78.0320, name: "Guru Ram Rai Gurudwara" }, // Guru Ram Rai Gurudwara
+    'tour14': { lat: 30.3165, lng: 78.0322, name: "Shri Prakasheshwar Mahadev Temple" }, // Shri Prakasheshwar Mahadev Temple
+    'tour15': { lat: 30.2830, lng: 78.0500, name: "Laxman Siddh Temple" }, // Laxman Siddh Temple
+    'tour16': { lat: 30.3833, lng: 77.9667, name: "Santala Devi Temple" }, // Santala Devi Temple
+    'tour17': { lat: 30.3665, lng: 78.0622, name: "Daat Kali Temple" }, // Daat Kali Temple
+    'tour18': { lat: 30.4765, lng: 78.0722, name: "George Everest's House" }, // George Everest's House
+    'tour19': { lat: 30.3865, lng: 78.0822, name: "Nag Tibba Trek" }, // Nag Tibba Trek
+    'tour20': { lat: 30.3965, lng: 78.0922, name: "Bhadraj Temple Trek" }, // Bhadraj Temple Trek
+    'tour21': { lat: 30.4065, lng: 78.1022, name: "Chhaskhet Trek" }, // Chhaskhet Trek
+    'tour22': { lat: 30.4165, lng: 78.1122, name: "Kimadi" }, // Kimadi
+    'tour23': { lat: 30.4265, lng: 78.1222, name: "Rajaji National Park" }, // Rajaji National Park
+    'tour24': { lat: 30.4365, lng: 78.1322, name: "MDDA Park" }, // MDDA Park
+    'tour25': { lat: 30.4465, lng: 78.1422, name: "Pacific Mall & Centrio Mall" }, // Pacific Mall & Centrio Mall
+    'tour26': { lat: 30.4565, lng: 78.1522, name: "Fun Valley Water Park" }, // Fun Valley Water Park
+    'tour27': { lat: 30.4665, lng: 78.1622, name: "Ellora's Bakery" }, // Ellora's Bakery
+    'tour28': { lat: 30.4765, lng: 78.1722, name: "Tiger Falls" }, // Tiger Falls
+    'tour29': { lat: 30.4865, lng: 78.1822, name: "Deoban" }, // Deoban
+    'tour30': { lat: 30.4965, lng: 78.1922, name: "Budher Caves" }, // Budher Caves
+    'tour31': { lat: 30.5065, lng: 78.2022, name: "Kanasar Meadows" }, // Kanasar Meadows
+    'tour32': { lat: 30.5165, lng: 78.2122, name: "Chilmiri Neck" }, // Chilmiri Neck
+    'tour33': { lat: 30.5265, lng: 78.2222, name: "Trekking & Camping" }, // Trekking & Camping
+    'tour34': { lat: 30.5365, lng: 78.2322, name: "Rock Climbing & Rappelling" }, // Rock Climbing & Rappelling
+    'tour35': { lat: 30.5465, lng: 78.2422, name: "Mountain Biking & Stargazing" }, // Mountain Biking & Stargazing
+    'tour36': { lat: 30.0765, lng: 78.2622, name: "Lakshman Jhula & Ram Jhula" }, // Lakshman Jhula & Ram Jhula
+    'tour37': { lat: 30.0865, lng: 78.2722, name: "Triveni Ghat" }, // Triveni Ghat
+    'tour38': { lat: 30.0965, lng: 78.2822, name: "Parmarth Niketan" }, // Parmarth Niketan
+    'tour39': { lat: 30.1065, lng: 78.2922, name: "Neelkanth Mahadev Temple" }, // Neelkanth Mahadev Temple
+    'tour40': { lat: 30.1165, lng: 78.3022, name: "Vashishta Cave" }, // Vashishta Cave
+    'tour41': { lat: 30.1265, lng: 78.3122, name: "River Rafting" }, // River Rafting
+    'tour42': { lat: 30.1365, lng: 78.3222, name: "Bungee Jumping" }, // Bungee Jumping
+    'tour43': { lat: 30.1465, lng: 78.3322, name: "Camping & Bonfire" }, // Camping & Bonfire
+    'tour44': { lat: 30.1565, lng: 78.3422, name: "Trekking" }, // Trekking
+    'tour45': { lat: 30.4563, lng: 78.0791, name: "Mall Road" }, // Mall Road (Mussoorie)
+    'tour47': { lat: 30.4783, lng: 78.1021, name: "Lal Tibba" }, // Lal Tibba
+    'tour48': { lat: 30.4633, lng: 78.0486, name: "Kempty Falls" }, // Kempty Falls
+    'tour49': { lat: 30.4562, lng: 78.0782, name: "Company Garden" }, // Company Garden
+    'tour50': { lat: 30.4578, lng: 78.0803, name: "Gun Hill" }, // Gun Hill
+    'tour51': { lat: 30.4549, lng: 78.0745, name: "Camel's Back Road" }, // Camel's Back Road
+    'tour52': { lat: 30.4558, lng: 78.0792, name: "Christ Church" }, // Christ Church
+    'tour53': { lat: 30.4550, lng: 78.0780, name: "Library Bazaar" }, // Library Bazaar
+    'tour54': { lat: 30.4290, lng: 78.0116, name: "Cloud's End" }, // Cloud's End
+    'tour55': { lat: 30.4412, lng: 78.1030, name: "Jharipani & Bhatta Falls" }, // Jharipani & Bhatta Falls
+    'tour56': { lat: 30.4401, lng: 78.0817, name: "Adventure Park & Skywalks" } // Adventure Park & Skywalks
+};
+  
+
+  // Accommodation coordinates (latitude, longitude) - simulated data
+  const accommodationCoordinates = {
+    'acc1': { lat: 30.3265, lng: 78.0422, name: "Luxury Hotel" }, // Luxury Hotel
+    'acc2': { lat: 30.3765, lng: 78.0622, name: "Mountain Resort" }, // Mountain Resort
+    'acc3': { lat: 30.3365, lng: 78.0522, name: "Traditional Homestay" }, // Traditional Homestay
+    'acc4': { lat: 30.3165, lng: 78.0322, name: "Boutique Hotel" }, // Boutique Hotel
+    'acc5': { lat: 30.3965, lng: 78.0722, name: "Eco Lodge" } // Eco Lodge
+  };
+
+  // Taxi rates per km - simulated data
+  const taxiRates = {
+    'taxi1': { lat: 30.334582, lng: 78.053781, name: "Hyatt Centric Rajpur Road Dehradun" }, // Hyatt Centric Rajpur Road Dehradun
+    'taxi2': { lat: 30.3451, lng: 78.0663, name: "Hotel Madhuban" }, // Hotel Madhuban
+    'taxi3': { lat: 30.3453, lng: 78.0665, name: "Regenta LP Vilas" }, // Regenta LP Vilas
+    'taxi4': { lat: 30.3454, lng: 78.0666, name: "Hotel Inderlok" }, // Hotel Inderlok
+    'taxi5': { lat: 30.3455, lng: 78.0667, name: "MJ Residency" }, // MJ Residency
+    'taxi6': { lat: 30.3456, lng: 78.0668, name: "Hotel Padmini Palace" }, // Hotel Padmini Palace
+    'taxi7': { lat: 30.3457, lng: 78.0669, name: "Hotel Samrat" }, // Hotel Samrat
+    'taxi8': { lat: 30.3458, lng: 78.0670, name: "FabHotel Krishna Heights" }, // FabHotel Krishna Heights
+    'taxi9': { lat: 30.3459, lng: 78.0671, name: "Hotel Vishal Residency" } // Hotel Vishal Residency
+};
+
+
+  // Function to calculate distance between two coordinates using Haversine formula
+  function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Radius of the earth in km
+    const dLat = deg2rad(lat2 - lat1);
+    const dLon = deg2rad(lon2 - lon1);
+    const a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2); 
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    const distance = R * c; // Distance in km
+    return Math.round(distance * 10) / 10; // Round to 1 decimal place
+  }
+
+  function deg2rad(deg) {
+    return deg * (Math.PI/180);
+  }
+
+  // Update cart and wishlist counts
+  function updateCounts() {
+    document.querySelector('.cart-count-number').textContent = cart.length;
+    document.querySelector('.wishlist-count').textContent = wishlist.length;
+  }
+
+  // Initialize counts
+  updateCounts();
+
+  // Show toast notification
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+
+  // Format price
+  function formatPrice(price) {
+    return '₹' + parseFloat(price).toFixed(2);
+  }
+
+  // Calculate subtotal for an item
+  function calculateSubtotal(item) {
+    return parseFloat(item.price) * item.quantity;
+  }
+
+  // Calculate cart subtotal
+  function calculateCartSubtotal() {
+    return cart.reduce((total, item) => {
+      return total + calculateSubtotal(item);
+    }, 0);
+  }
+
+  // Calculate tax
+  function calculateTax(subtotal) {
+    return subtotal * 0.1; // 10% tax
+  }
+
+  // Calculate total
+  function calculateTotal(subtotal, tax) {
+    return subtotal + tax;
+  }
+
+  // Generate random booking reference
+  function generateBookingReference() {
+    const prefix = 'TT';
+    const randomNum = Math.floor(10000 + Math.random() * 90000);
+    const date = new Date();
+    const dateStr = `${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}`;
+    
+    return `${prefix}-${randomNum}-${dateStr}`;
+  }
+
+  // Separate cart items by type
+  function categorizeCartItems() {
+    const destinations = [];
+    const accommodations = [];
+    const taxis = [];
+
+    cart.forEach(item => {
+      const id = item.id;
+      if (id.startsWith('tour')) {
+        destinations.push(item);
+      } else if (id.startsWith('acc')) {
+        accommodations.push(item);
+      } else if (id.startsWith('taxi')) {
+        taxis.push(item);
+      }
+    });
+
+    return { destinations, accommodations, taxis };
+  }
+
+  // Calculate distances between destinations and accommodation
+  function calculateDistances(destinations, accommodations) {
+    // If more than one accommodation, show warning and return empty distances
+    if (accommodations.length > 1) {
+      return { distances: [], multipleAccommodations: true };
+    }
+
+    // If no accommodation or no destinations, return empty distances
+    if (accommodations.length === 0 || destinations.length === 0) {
+      return { distances: [], multipleAccommodations: false };
+    }
+
+    const accommodation = accommodations[0];
+    const accommodationCoord = accommodationCoordinates[accommodation.id];
+    
+    if (!accommodationCoord) {
+      return { distances: [], multipleAccommodations: false };
+    }
+
+    const distances = [];
+    
+    destinations.forEach(destination => {
+      const destCoord = destinationCoordinates[destination.id];
+      
+      if (destCoord) {
+        const distance = calculateDistance(
+          accommodationCoord.lat, accommodationCoord.lng,
+          destCoord.lat, destCoord.lng
+        );
+        
+        distances.push({
+          destinationId: destination.id,
+          destinationName: destCoord.name,
+          accommodationId: accommodation.id,
+          accommodationName: accommodationCoord.name,
+          distance: distance
+        });
+      }
+    });
+
+    return { distances, multipleAccommodations: false };
+  }
+
+  // Calculate taxi fares based on distances
+  function calculateTaxiFares(distances, taxis) {
+    if (distances.length === 0 || taxis.length === 0) {
+      return [];
+    }
+
+    const taxi = taxis[0]; // Use the first taxi in the cart
+    const taxiRate = taxiRates[taxi.id];
+    
+    if (!taxiRate) {
+      return [];
+    }
+
+    const totalDistance = distances.reduce((sum, item) => sum + item.distance, 0);
+    const fare = totalDistance * taxiRate.rate;
+    
+    return {
+      taxiId: taxi.id,
+      taxiName: taxiRate.name,
+      ratePerKm: taxiRate.rate,
+      totalDistance: totalDistance,
+      totalFare: fare
+    };
+  }
+
+  // Render cart items
+  function renderCart() {
+    const cartContent = document.getElementById('cartContent');
+    
+    if (cart.length === 0) {
+      // Display empty cart message
+      cartContent.innerHTML = `
+        <div class="empty-cart fade-in">
+          <i class="fas fa-shopping-cart"></i>
+          <h3>Your cart is empty</h3>
+          <p>Looks like you haven't added any tours to your cart yet. Explore our amazing destinations and find your perfect getaway!</p>
+          <a href="dehra.html" class="btn btn-large">Browse Tours</a>
+        </div>
+      `;
+      return;
+    }
+
+    // Categorize cart items
+    const { destinations, accommodations, taxis } = categorizeCartItems();
+    
+    // Calculate distances and taxi fares
+    const { distances, multipleAccommodations } = calculateDistances(destinations, accommodations);
+    const taxiFare = calculateTaxiFares(distances, taxis);
+    
+    // Calculate values
+    let subtotal = calculateCartSubtotal();
+    
+    // Add taxi fare to subtotal if available
+    if (taxiFare && taxiFare.totalFare) {
+      subtotal += taxiFare.totalFare;
+    }
+    
+    const tax = calculateTax(subtotal);
+    const total = calculateTotal(subtotal, tax);
+    
+    // Create cart layout with table and summary
+    let cartHTML = `
+      <div class="cart-container">
+        <div class="cart-items">
+    `;
+    
+    // Show warning for multiple accommodations
+    if (multipleAccommodations) {
+      cartHTML += `
+        <div class="multi-accommodation-warning">
+          <i class="fas fa-exclamation-triangle"></i>
+          <strong>Multiple accommodations detected!</strong>
+          <p>Distance calculation between destinations and accommodations is currently available for a single accommodation only. This feature will be available soon for multiple accommodations.</p>
+        </div>
+      `;
+    }
+    
+    cartHTML += `
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+    `;
+    
+    // Add each cart item to the table
+    cart.forEach((item, index) => {
+      const itemSubtotal = calculateSubtotal(item);
+      
+      cartHTML += `
+        <tr class="cart-item" style="--item-index: ${index}">
+          <td>
+            <div class="cart-item">
+              <div class="cart-item-image">
+                <img src="${item.image}" alt="${item.title}">
+              </div>
+              <div class="cart-item-details">
+                <h4>${item.title}</h4>
+                <p>${item.id.startsWith('tour') ? 'Destination' : item.id.startsWith('acc') ? 'Accommodation' : 'Transport'}</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="cart-item-price">${formatPrice(item.price)}</div>
+          </td>
+          <td>
+            <div class="cart-item-quantity">
+              <button class="quantity-btn decrease-btn" data-id="${item.id}">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="10" data-id="${item.id}">
+              <button class="quantity-btn increase-btn" data-id="${item.id}">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </td>
+          <td>
+            <div class="cart-item-subtotal">${formatPrice(itemSubtotal)}</div>
+          </td>
+          <td>
+            <div class="cart-item-remove" data-id="${item.id}">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+          </td>
+        </tr>
+      `;
+    });
+    
+    cartHTML += `
+            </tbody>
+          </table>
+    `;
+    
+    // Add distance details if available
+    if (distances.length > 0 && !multipleAccommodations) {
+      cartHTML += `
+        <div class="distance-details">
+          <h4>Distance Details</h4>
+      `;
+      
+      distances.forEach(distance => {
+        cartHTML += `
+          <div class="distance-item">
+            <span>${distance.destinationName} to ${distance.accommodationName}</span>
+            <span>${distance.distance} km</span>
+          </div>
+        `;
+      });
+      
+      cartHTML += `</div>`;
+    }
+    
+    cartHTML += `
+        </div>
+        <div class="cart-summary fade-in">
+          <h3>Order Summary</h3>
+          <div class="summary-row">
+            <span>Items Subtotal</span>
+            <span>${formatPrice(calculateCartSubtotal())}</span>
+          </div>
+    `;
+    
+    // Add taxi fare details if available
+    if (taxiFare && taxiFare.totalFare) {
+      cartHTML += `
+        <div class="taxi-details">
+          <div class="taxi-item">
+            <span class="taxi-name">${taxiFare.taxiName}</span>
+            <span class="taxi-price">₹${taxiFare.ratePerKm}/km</span>
+          </div>
+          <div class="taxi-item">
+            <span>Total Distance</span>
+            <span>${taxiFare.totalDistance.toFixed(1)} km</span>
+          </div>
+          <div class="taxi-item">
+            <span>Taxi Fare</span>
+            <span>${formatPrice(taxiFare.totalFare)}</span>
+          </div>
+        </div>
+      `;
+    }
+    
+    cartHTML += `
+          <div class="summary-row">
+            <span>Tax (10%)</span>
+            <span>${formatPrice(tax)}</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span>${formatPrice(total)}</span>
+          </div>
+          
+          <div class="promo-code">
+            <h5>Exclusive of Travel charges from your location*</h5>
+            <h4>Promo Code</h4>
+            <div class="promo-form">
+              <input type="text" class="promo-input" placeholder="Enter promo code">
+              <button class="promo-btn">Apply</button>
+            </div>
+          </div>
+          
+          <button class="btn checkout-btn" id="confirmBookingBtn">Confirm Booking</button>
+        </div>
+      </div>
+    `;
+    
+    cartContent.innerHTML = cartHTML;
+    
+    // Add event listeners to the buttons
+    document.querySelectorAll('.cart-item-remove').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        const item = cart.find(item => item.id === id);
+        
+        // Remove item from cart
+        cart = cart.filter(item => item.id !== id);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        showToast(`${item.title} removed from cart!`);
+        updateCounts();
+        renderCart();
+      });
+    });
+    
+    // Quantity increase button
+    document.querySelectorAll('.increase-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        const item = cart.find(item => item.id === id);
+        
+        if (item && item.quantity < 10) {
+          item.quantity++;
+          localStorage.setItem('cart', JSON.stringify(cart));
+          renderCart();
+        }
+      });
+    });
+    
+    // Quantity decrease button
+    document.querySelectorAll('.decrease-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        const item = cart.find(item => item.id === id);
+        
+        if (item && item.quantity > 1) {
+          item.quantity--;
+          localStorage.setItem('cart', JSON.stringify(cart));
+          renderCart();
+        }
+      });
+    });
+    
+    // Quantity input change
+    document.querySelectorAll('.quantity-input').forEach(input => {
+      input.addEventListener('change', function() {
+        const id = this.getAttribute('data-id');
+        const item = cart.find(item => item.id === id);
+        
+        if (item) {
+          const newQuantity = parseInt(this.value);
+          
+          if (newQuantity >= 1 && newQuantity <= 100000) {
+            item.quantity = newQuantity;
+          } else if (newQuantity < 1) {
+            item.quantity = 1;
+          } else {
+            item.quantity = 100000;
+          }
+          
+          localStorage.setItem('cart', JSON.stringify(cart));
+          renderCart();
+        }
+      });
+    });
+    
+    // Promo code button
+    document.querySelector('.promo-btn').addEventListener('click', function() {
+      const promoInput = document.querySelector('.promo-input');
+      const promoCode = promoInput.value.trim();
+      
+      if (promoCode) {
+        showToast('Promo code applied successfully!');
+        promoInput.value = '';
+        // In a real application, you would validate the promo code and apply discounts
+      } else {
+        showToast('Please enter a valid promo code');
+      }
+    });
+    
+    // Confirm booking button
+    document.getElementById('confirmBookingBtn').addEventListener('click', function() {
+      // Generate booking reference
+      const bookingReference = generateBookingReference();
+      document.getElementById('bookingReference').textContent = bookingReference;
+      
+      // Show confirmation modal
+      const confirmationModal = document.getElementById('confirmationModal');
+      confirmationModal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+  }
+  
+  // Confirmation modal functionality
+  const confirmationModal = document.getElementById('confirmationModal');
+  const confirmationClose = document.querySelector('.confirmation-close');
+  const continueShoppingBtn = document.getElementById('continueShoppingBtn');
+  const viewBookingsBtn = document.getElementById('viewBookingsBtn');
+  
+  // Close confirmation modal
+  confirmationClose.addEventListener('click', function() {
+    confirmationModal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+  });
+  
+  // Continue shopping button
+  continueShoppingBtn.addEventListener('click', function() {
+    // Clear cart after successful booking
+    cart = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCounts();
+    
+    // Close modal and redirect to tours page
+    confirmationModal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+    window.location.href = 'dehra.html';
+  });
+  
+  // View bookings button
+  viewBookingsBtn.addEventListener('click', function() {
+    // In a real application, this would redirect to a bookings page
+    confirmationModal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+    window.location.href = 'userdash.html#my-bookings';
+  });
+  
+  // Close modal when clicking outside
+  window.addEventListener('click', function(e) {
+    if (e.target === confirmationModal) {
+      confirmationModal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+  });
+  
+  // Render cart on page load
+  renderCart();
+  
+  // Add hover effects to buttons
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-3px)';
+      this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+    });
+    
+    button.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+      this.style.boxShadow = '';
+    });
+  });
+</script>
+</body>
+</html>

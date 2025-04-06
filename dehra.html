@@ -1,0 +1,3964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tours - Sanchari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary-color: #3AADA8;
+      --dark-blue: #0a2540;
+      --light-blue: #1a3550;
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --text-gray: #777777;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text-gray);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .copyright{
+      margin-left: 41%;
+
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark-blue);
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .section-subtitle {
+      display: block;
+      font-style: italic;
+      color: var(--text-gray);
+      margin-bottom: 5px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+    }
+
+    .section-title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background-color: transparent;
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: 1px solid var(--white);
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--white);
+      color: var(--dark-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1000;
+      transition: var(--transition);
+      background-color: transparent;
+    }
+
+    header.scrolled {
+      background-color: var(--dark-blue);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      margin-left: -38px;
+      padding: 25px;
+      width: 250px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo h1 {
+      color: var(--white);
+      font-size: 24px;
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+
+    .logo span {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      margin-right: 20px;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      font-size: 14px;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 50vh;
+      background: linear-gradient(to bottom, rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      padding-left: 50px;
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    /* Tours Section */
+    .tours-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .tours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .tour-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+      background-color: var(--white);
+      position: relative; /* Added for positioning card icons */
+    }
+
+    .tour-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .tour-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .tour-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .tour-card:hover .tour-image img {
+      transform: scale(1.1);
+    }
+
+    .tour-content {
+      padding: 20px;
+    }
+
+    .tour-destination {
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+      color: var(--text-gray);
+      margin-bottom: 5px;
+    }
+
+    .tour-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .tour-price {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .tour-description {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    .view-details {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+    }
+
+    .view-details i {
+      margin-left: 5px;
+    }
+
+    .view-details:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Card Icons - Added for wishlist and cart icons */
+    .card-icons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .card-icon {
+      width: 35px;
+      height: 35px;
+      background-color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-icon:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    .card-icon.active {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 30px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links ul {
+      display: flex;
+    }
+
+    .footer-links ul li {
+      margin-left: 20px;
+    }
+
+    .footer-links ul li a {
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .footer-links ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+      .tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header .container {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      nav ul {
+        margin-right: 0;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .tours-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links ul {
+        margin-top: 20px;
+        justify-content: center;
+      }
+
+      .footer-links ul li:first-child {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .section-title {
+        font-size: 36px;
+      }
+
+      nav ul li {
+        margin-left: 15px;
+      }
+
+      .hero-content {
+        padding-left: 20px;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      display: flex;
+    }
+
+    .modal-content {
+      background-color: var(--white);
+      width: 90%;
+      max-width: 800px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      transform: translateY(50px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      padding: 20px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      position: relative;
+    }
+
+    .modal-header h3 {
+      color: var(--white);
+      margin-bottom: 0;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: var(--white);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 20px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-details {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+
+    .modal-detail {
+      text-align: center;
+      flex: 1;
+    }
+
+    .modal-detail i {
+      font-size: 24px;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .modal-detail span {
+      display: block;
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    .modal-detail strong {
+      display: block;
+      font-size: 16px;
+      color: var(--dark-blue);
+    }
+
+    .modal-footer {
+      padding: 20px;
+      background-color: var(--light-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-price {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    /* Added for modal actions */
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Filter Styles */
+    .filter-container {
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .filter-button {
+      padding: 8px 15px;
+      background-color: var(--light-gray);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    .filter-button:hover, .filter-button.active {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    /* Search Bar */
+    .search-container {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 20px;
+      padding-right: 50px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(58, 173, 168, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-gray);
+      font-size: 18px;
+    }
+
+    /* Cart Icon in Header */
+    .cart-icon {
+      position: relative;
+      margin-left: 20px;
+    }
+
+    .cart-icon a {
+      color: var(--white);
+      font-size: 20px;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      font-size: 10px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 15px 25px;
+      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 2000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Booking Steps Styles */
+    .booking-steps {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .booking-steps::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #e0e0e0;
+      z-index: 1;
+      transform: translateY(-50%);
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+      background-color: white;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .step:hover .step-number {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(58, 173, 168, 0.3);
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-bottom: 10px;
+      transition: var(--transition);
+      color: var(--text-gray);
+    }
+
+    .step.active .step-number {
+      background-color: var(--primary-color);
+      color: var(--white);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(58, 173, 168, 0.5);
+    }
+
+    .step-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-gray);
+      transition: var(--transition);
+    }
+
+    .step.active .step-title {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .step-content {
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .step-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .next-step-btn {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 30px;
+    }
+
+    .next-step-btn .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(58, 173, 168, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(58, 173, 168, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(58, 173, 168, 0);
+      }
+    }
+
+    /* Tours Section */
+    .tours-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .tours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .tour-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+      background-color: var(--white);
+      position: relative; /* Added for positioning card icons */
+    }
+
+    .tour-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .tour-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .tour-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .tour-card:hover .tour-image img {
+      transform: scale(1.1);
+    }
+
+    .tour-content {
+      padding: 20px;
+    }
+
+    .tour-destination {
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+      color: var(--text-gray);
+      margin-bottom: 5px;
+    }
+
+    .tour-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .tour-price {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .tour-description {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    .view-details {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+    }
+
+    .view-details i {
+      margin-left: 5px;
+    }
+
+    .view-details:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Card Icons - Added for wishlist and cart icons */
+    .card-icons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .card-icon {
+      width: 35px;
+      height: 35px;
+      background-color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-icon:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    .card-icon.active {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+    /* Feature icons for accommodation and taxi cards */
+    .feature-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-gray);
+    }
+
+    .feature i {
+      margin-right: 5px;
+      color: var(--primary-color);
+    }
+
+    /* Accommodation and Taxi specific styles */
+    .accommodation-icon, .taxi-icon {
+      font-size: 18px;
+      margin-right: 8px;
+      color: var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="1.png">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="userindex.html">Home</a></li>
+          <li><a href="about-us.html">About us</a></li>
+          <li><a href="tour.html" class="active">Tours</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <!-- Added wishlist and cart icons to header -->
+        <div class="cart-icon">
+          <a href="userdash.html#my-whislist"><i class="fas fa-heart"></i></a>
+          <span class="cart-count wishlist-count">0</span>
+        </div>
+        <div class="cart-icon">
+          <a href="addtocart.html"><i class="fas fa-shopping-cart"></i></a>
+          <span class="cart-count cart-count-number">0</span>
+        </div>
+        <div class="cart-icon">
+          <a href="userdash.html"><i class="fa-solid fa-user"></i></a>
+          
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="animate-text">Dehradun</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking System Section -->
+  <section class="tours-section" id="booking-system">
+    <div class="container">
+      <!-- Booking Steps Navigation -->
+      <div class="booking-steps fade-in">
+        <div class="step step-1 active">
+          <div class="step-number">1</div>
+          <div class="step-title">Destinations</div>
+        </div>
+        <div class="step step-2">
+          <div class="step-number">2</div>
+          <div class="step-title">Accommodation</div>
+        </div>
+        <div class="step step-3">
+          <div class="step-number">3</div>
+          <div class="step-title">Taxis</div>
+        </div>
+      </div>
+
+      <!-- Step 1: Destinations -->
+      <div class="step-content step-content-1 active">
+        <h2 class="section-title fade-in">Top Destinations</h2>
+        
+        <div class="filter-container fade-in">
+          <button class="filter-button active" data-filter="all">All Destinations</button>
+          <button class="filter-button" data-filter="his">Historical</button>
+          <button class="filter-button" data-filter="reli">Religious</button>
+          <button class="filter-button" data-filter="adven">Adventurous</button>
+          <button class="filter-button" data-filter="mark">Markets</button>
+          <button class="filter-button" data-filter="scene">Scenic Attractions</button>
+          <button class="filter-button" data-filter="park">Parks & Entertainment</button>
+        </div>
+        
+        <div class="tours-grid">
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="35" data-id="tour1">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour1" data-title="Robber's cave(Gucchu Pani)" data-price="35" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour1" data-title="Robber's cave(Gucchu Pani)" data-price="35" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/cc/db/83/robber-s-cave-guchu-pani.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Robber's cave(Gucchu Pani)</h3>
+              <p class="tour-description">A unique river cave where a stream mysteriously disappears and reappears, popular for wading through cool waters.</p>
+              <a href="#" class="view-details" data-tour="tour1">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Haridwar -->
+          <div class="tour-card fade-in" data-destination="scene" data-region="scene" data-price="0" data-id="tour2">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour2" data-title="Sahastradhara" data-price="0" data-image="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour2" data-title="Sahastradhara" data-price="0" data-image="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dehraduntourism.co.in/images/places-to-visit/header/sahastradhara-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="England">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Sahastradhara</h3>
+              <p class="tour-description">Known for its thousand-fold spring, this natural site features sulphur-rich waters believed to have healing properties..</p>
+              <a href="#" class="view-details" data-tour="tour2">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Pauri Garhwal  -->
+          <div class="tour-card fade-in" data-destination="park" data-region="park" data-price="20" data-id="tour3">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour3" data-title="Malsi Deer Park" data-price="20" data-image="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour3" data-title="Malsi Deer Park" data-price="20" data-image="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.seawatersports.com/images/places/malsi-deer-park.png" alt="Italy">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Malsi Deer Park</h3>
+              <p class="tour-description">A small zoo set in forested surroundings, home to deer, peacocks, and other animals—perfect for kids.</p>
+              <a href="#" class="view-details" data-tour="tour3">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Tehri Garhwal -->
+          <div class="tour-card fade-in" data-destination="park" data-region="park" data-price="60" data-id="tour4">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour4" data-title="Lachhiwala Nature Park" data-price="60" data-image="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour4" data-title="Lachhiwala Nature Park" data-price="60" data-image="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dehraduntourism.co.in/images/places-to-visit/header/lacchiwalla-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Turkey">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Lachhiwala Nature Park</h3>
+              <p class="tour-description">A peaceful nature park with water pools and lush surroundings, ideal for relaxation and picnics.</p>
+              <a href="#" class="view-details" data-tour="tour4">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="scene" data-region="scene" data-price="0" data-id="tour6">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour6" data-title="Maldevta" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour6" data-title="Maldevta" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://rajajijunglesafari.com/wp-content/uploads/Maldevta-Dehradun.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Maldevta</h3>
+              <p class="tour-description">A quiet riverside area surrounded by forests, ideal for a quick nature escape.</p>
+              <a href="#" class="view-details" data-tour="tour6">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="0" data-id="tour7">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour7" data-title="Shikhar Fall" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour7" data-title="Shikhar Fall" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.seawatersports.com/images/places/shikhar-falls.png" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Shikhar Fall</h3>
+              <p class="tour-description">A lesser-known waterfall spot with a short jungle trek and refreshing natural surroundings.</p>
+              <a href="#" class="view-details" data-tour="tour7">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="his" data-price="50" data-id="tour8">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour8" data-title="Forest Research Institute (FRI)" data-price="50" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour8" data-title="Forest Research Institute (FRI)" data-price="50" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://wandersky.in/wp-content/uploads/2023/08/Forest-research-institude-of-dehradun.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Forest Research Institute (FRI)</h3>
+              <p class="tour-description">An iconic colonial-era campus known for its architecture, museums, and botanical gardens.</p>
+              <a href="#" class="view-details" data-tour="tour8">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="reli" data-price="0" data-id="tour9">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour9" data-title="Tapkeshwar Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour9" data-title="Tapkeshwar Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://gouttrakhand.com/wp-content/uploads/2023/02/tapkeshwar-temple-significance-in-hindi-2.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Tapkeshwar Temple</h3>
+              <p class="tour-description">Tapkeshwar Temple, dedicated to Lord Shiva, is set inside a natural cave with water dripping onto the Shivling.</p>
+              <a href="#" class="view-details" data-tour="tour9">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="reli" data-price="0" data-id="tour10">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour10" data-title="Buddha Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour10" data-title="Buddha Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dehraduntourism.co.in/images/places-to-visit/header/mindrolling-monastery-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Buddha Temple (Mindrolling Monastery)</h3>
+              <p class="tour-description">Mindrolling Monastery, one of India is largest Buddhist centers, features a grand stupa and peaceful gardens.</p>
+              <a href="#" class="view-details" data-tour="tour10">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="his" data-price="0" data-id="tour11">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour11" data-title="Kalinga War Memorial" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour11" data-title="Kalinga War Memorial" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/War_Memorial_of_Nepal.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Kalinga War Memorial</h3>
+              <p class="tour-description">Kalinga War Memorial, built by the British, honors the bravery of Gorkha soldiers.</p>
+              <a href="#" class="view-details" data-tour="tour11">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="0" data-id="tour12">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour12" data-title="Clock Tower" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour12" data-title="Clock Tower" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://kevinstandagephotography.wordpress.com/wp-content/uploads/2017/03/ksp_4662.jpg?w=890" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Clock Tower (Ghanta Ghar)</h3>
+              <p class="tour-description">PClock Tower, or Ghanta Ghar, is a central landmark in Dehradun city and a popular meeting spot.</p>
+              <a href="#" class="view-details" data-tour="tour12">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="reli" data-price="0" data-id="tour13">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour13" data-title="Guru Ram Rai Gurudwara" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour13" data-title="Guru Ram Rai Gurudwara" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dehraduntourism.co.in/images/places-to-visit/header/guru-ram-rai-gurudwara-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Guru Ram Rai Gurudwara</h3>
+              <p class="tour-description">Guru Ram Rai Gurudwara is an important Sikh pilgrimage site with stunning architecture and cultural history.</p>
+              <a href="#" class="view-details" data-tour="tour13">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="reli" data-price="0" data-id="tour14">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour14" data-title="Shri Prakasheshwar Mahadev Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour14" data-title="Shri Prakasheshwar Mahadev Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dehraduntourism.co.in/images/places-to-visit/header/shree-prakasheswar-mahadev-mandir-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Shri Prakasheshwar Mahadev Temple</h3>
+              <p class="tour-description">A peaceful Lord Shiva temple known for its calm surroundings and no offerings rule.</p>
+              <a href="#" class="view-details" data-tour="tour14">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="reli" data-price="0" data-id="tour15">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour15" data-title="Laxman Siddh Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour15" data-title="Laxman Siddh Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dehraduntourism.co.in/images//tourist-places/laxman-siddh-temple-dehradun/laxman-siddh-temple-dehradun-photo-gallery-dehradun-tourism.jpg.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Laxman Siddh Temple</h3>
+              <p class="tour-description">A sacred temple believed to be the meditation spot of Laxman, Lord Ram’s brother.</p>
+              <a href="#" class="view-details" data-tour="tour15">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="reli" data-price="0" data-id="tour16">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour16" data-title="Santala Devi Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour16" data-title="Santala Devi Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://rajajijunglesafari.com/wp-content/uploads/Santala-Devi-Temple.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Santala Devi Temple</h3>
+              <p class="tour-description">A hilltop temple offering panoramic views and a scenic trek.</p>
+              <a href="#" class="view-details" data-tour="tour16">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="reli" data-price="0" data-id="tour17">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour17" data-title="Daat Kali Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour17" data-title="Daat Kali Temple" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.sacredyatra.com/images/temples/daat-kali-temple.webp" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Daat Kali Temple</h3>
+              <p class="tour-description">Popular among travelers for blessings before long journeys.</p>
+              <a href="#" class="view-details" data-tour="tour17">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="his" data-price="0" data-id="tour18">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour18" data-title="George Everest’s House" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour18" data-title="George Everest’s House" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://s7ap1.scene7.com/is/image/incredibleindia/sir-george-everest-house-mussoorie-1-attr-hero?qlt=82&ts=1727352336445" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">George Everest’s House</h3>
+              <p class="tour-description">Historic house of Sir George Everest with scenic views of Doon Valley and Mussoorie.</p>
+              <a href="#" class="view-details" data-tour="tour18">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="0" data-id="tour19">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour19" data-title="Nag Tibba Trek" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour19" data-title="Nag Tibba Trek" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://t.eucdn.in/tourism/lg/nagtibba-9751077.webp" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Nag Tibba Trek</h3>
+              <p class="tour-description">A famous beginner-friendly trek near Mussoorie, offering Himalayan views.</p>
+              <a href="#" class="view-details" data-tour="tour19">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="reli" data-price="0" data-id="tour20">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour20" data-title="Bhadraj Temple Trek" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour20" data-title="Bhadraj Temple Trek" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://cdn-web.firstrek.in/wp-content/uploads/2023/10/Untitled-design-11.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Bhadraj Temple Trek</h3>
+              <p class="tour-description">Moderate trek to a hilltop temple dedicated to Lord Balram.</p>
+              <a href="#" class="view-details" data-tour="tour20">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="0" data-id="tour21">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour21" data-title="Chhaskhet Trek" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour21" data-title="Chhaskhet Trek" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.trailhikers.in/wp-content/uploads/2022/11/Chhaskhet-Nature-Walk-001.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Chhaskhet Trek</h3>
+              <p class="tour-description">An offbeat and peaceful trekking route near Mussoorie.</p>
+              <a href="#" class="view-details" data-tour="tour21">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="0" data-id="tour22">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour22" data-title="Kimadi" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour22" data-title="Kimadi" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/f7/1d/31/caption.jpg?w=300&h=300&s=1" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Kimadi</h3>
+              <p class="tour-description">A hidden valley ideal for camping, biking, and nature walks.</p>
+              <a href="#" class="view-details" data-tour="tour22">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="park" data-price="150" data-id="tour23">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour23" data-title="Rajaji National Park" data-price="150" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour23" data-title="Rajaji National Park" data-price="150" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT1cm4PWantMbjasv_XwqwUmtJsDQd1ODerQ&s" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Rajaji National Park</h3>
+              <p class="tour-description">A tiger reserve and biodiversity hotspot near Dehradun.</p>
+              <a href="#" class="view-details" data-tour="tour23">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="park" data-price="0" data-id="tour24">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour24" data-title="MDDA Parkn\" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour24" data-title="MDDA Park" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dehraduntourism.co.in/images//tourist-places/mdda-park-dehradun/mdda-park-dehradun-tourism-entry-ticket-price.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">MDDA Park</h3>
+              <p class="tour-description">A clean, family-friendly park with mountain views and greenery.</p>
+              <a href="#" class="view-details" data-tour="tour24">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="mark" data-price="0" data-id="tour25">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour25" data-title="Pacific Mall & Centrio Mall" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour25" data-title="Pacific Mall & Centrio Mall" data-price="0" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://thedehradun.in/wp-content/uploads/2022/10/centrio-mall-dehradun.webp" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Pacific Mall & Centrio Mall</h3>
+              <p class="tour-description">Modern malls for shopping, food, and entertainment in Dehradun.</p>
+              <a href="#" class="view-details" data-tour="tour25">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Dehradun -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="park" data-price="2350" data-id="tour26">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour26" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour26" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dehraduntourism.co.in/images/places-to-visit/header/fun-valley-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Fun Valley Water Park</h3>
+              <p class="tour-description">Popular amusement park with rides, water slides, and wave pools.</p>
+              <a href="#" class="view-details" data-tour="tour26">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Ellora’s Bakery -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="mark" data-price="2350" data-id="tour27">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour27" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour27" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.hlimg.com/images/things2do/738X538/r_1524123565t.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Ellora's Bakery</h3>
+              <p class="tour-description">A heritage bakery known for its rusks, pastries, and plum cakes.</p>
+              <a href="#" class="view-details" data-tour="tour27">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Mall Road -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="mark" data-price="2350" data-id="tour45">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour45" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour45" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://static.toiimg.com/photo/msid-114052850,width-96,height-65.cms" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Mall Road(Mussoorie)</h3>
+              <p class="tour-description">The lively center of Mussoorie, lined with shops, cafés, and colonial charm.</p>
+              <a href="#" class="view-details" data-tour="tour45">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          
+          <!-- Ellora’s Bakery -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour47">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour47" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour47" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.connectingtraveller.com/images/localtip/1628503411maxresdefault.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Lal Tibba</h3>
+              <p class="tour-description">Mussoorie’s highest point offering panoramic views of the snow-capped Himalayas.</p>
+              <a href="#" class="view-details" data-tour="tour47">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Kempty Falls -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour48">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour48" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour48" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.justahotels.com/wp-content/uploads/2024/03/kempty-falls-scaled.jpeg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Kempty Falls(Mussoorie)</h3>
+              <p class="tour-description">A popular waterfall cascading down rocky hills, great for a refreshing dip.</p>
+              <a href="#" class="view-details" data-tour="tour48">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Company Garden -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour49">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour49" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour49" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://mussoorietourism.co.in/images/places-to-visit/header/company-garden-mussoorie-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Company Garden(Mussoorie)</h3>
+              <p class="tour-description">Beautifully landscaped garden with colorful blooms, fountains, and a mini lake.</p>
+              <a href="#" class="view-details" data-tour="tour49">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Gun Hill -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour50">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour50" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour50" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.holidify.com/images/cmsuploads/compressed/Gun-Hill_20171207134206.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Gun Hill(Mussoorie)</h3>
+              <p class="tour-description">Second highest point in town accessible by ropeway or trek.</p>
+              <a href="#" class="view-details" data-tour="tour50">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Camel’s Back Road -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour51">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour51" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour51" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://media.holidify.com/images/cmsuploads/compressed/uk-mussoorie-camels-back-road-01_20241205154031.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Camel’s Back Road(Mussoorie)</h3>
+              <p class="tour-description">A scenic 3 km stretch shaped like a camel’s hump.</p>
+              <a href="#" class="view-details" data-tour="tour51">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Christ Church -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="his" data-price="2350" data-id="tour52">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour52" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour52" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://gouttrakhand.com/wp-content/uploads/2023/03/chhrist-church-shimla-head.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Christ Church(Mussoorie)</h3>
+              <p class="tour-description">Built in 1836, this is one of the oldest churches in the Himalayas.</p>
+              <a href="#" class="view-details" data-tour="tour52">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Library Bazaar -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="mark" data-price="2350" data-id="tour53">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour53" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour53" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/41/d7/38/library-bazar.jpg?w=900&h=-1&s=1" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Library Bazaar(Mussoorie)</h3>
+              <p class="tour-description">Old-world market near Gandhi Chowk with cozy cafés and antique shops.</p>
+              <a href="#" class="view-details" data-tour="tour53">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Cloud’s End -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour54">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour54" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour54" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://t.eucdn.in/tourism/lg/clouds-end-9897803.webp" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Cloud’s End(Mussoorie)</h3>
+              <p class="tour-description">The westernmost point of Mussoorie surrounded by dense forest.</p>
+              <a href="#" class="view-details" data-tour="tour54">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Jharipani & Bhatta Falls -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour55">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour55" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour55" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://optimatravels.com/images/uttarakhand-images/kempty-falls.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Jharipani & Bhatta Falls(Mussoorie)</h3>
+              <p class="tour-description">Less crowded natural waterfalls with serene trekking routes.</p>
+              <a href="#" class="view-details" data-tour="tour55">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Adventure Park & Skywalks(Mussoorie) -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="park" data-price="2350" data-id="tour56">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour56" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour56" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/f8/09/ab/mussoorie-adventure-park.jpg?w=1200&h=1200&s=1" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Adventure Park & Skywalks(Mussoorie)</h3>
+              <p class="tour-description">Thrilling activities like ziplining, skywalks, and rock climbing.</p>
+              <a href="#" class="view-details" data-tour="tour56">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Tiger Falls -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour28">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour28" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour28" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/4d/a1/56/tiger-falls-beautiful.jpg?w=1200&h=1200&s=1" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Tiger Falls(Chakrata)</h3>
+              <p class="tour-description">One of the highest waterfalls in Uttarakhand at 312 ft, surrounded by dense forests and hills.</p>
+              <a href="#" class="view-details" data-tour="tour28">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Deoban -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour29">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour29" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour29" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://imgcld.yatra.com/ytimages/image/upload/v1548847883/AdvNation/ANN_TRP747/Popular_Treks_in_Uttarakhand_Kj0gw1.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Deoban(Chakrata)</h3>
+              <p class="tour-description">A lush cedar forest located at high altitude, offering stunning views of the snow-clad Himalayas.</p>
+              <a href="#" class="view-details" data-tour="tour29">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Budher Caves -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour30">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour30" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour30" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2023/12/18/7056bc5da0ecf95ae56ee4cea3ff9294_1000x1000.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Budher Caves(Chakrata)</h3>
+              <p class="tour-description">Ancient limestone caves believed to be linked to the Pandavas, offering a sense of mystery and adventure.</p>
+              <a href="#" class="view-details" data-tour="tour30">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Kanasar Meadows -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour31">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour31" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour31" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuLO1Jfs1krWNImivqvF4W3-fWtFEc9NiS1A&s" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Kanasar Meadows(Chakrata)</h3>
+              <p class="tour-description">Vast open meadows surrounded by thick forests, perfect for camping and scenic hikes.</p>
+              <a href="#" class="view-details" data-tour="tour31">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Chilmiri Neck -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour32">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour32" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour32" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://blog-content.ixigo.com/wp-content/uploads/2016/05/chakrataa.png" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Chilmiri Neck(Chakrata)</h3>
+              <p class="tour-description">The highest point in Chakrata, known for stunning sunsets and peaceful surroundings.</p>
+              <a href="#" class="view-details" data-tour="tour32">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Trekking & Camping -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="adven" data-price="2350" data-id="tour33">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour33" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour33" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://uttarakhandtriptrek.com/wp-content/uploads/2019/06/CAMP-SITE-ON-NAG-TIBBA-TEK.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Trekking & Camping(Chakrata)</h3>
+              <p class="tour-description">Popular at Deoban, Kanasar, and Tiger Falls—ideal for both beginners and nature enthusiasts.</p>
+              <a href="#" class="view-details" data-tour="tour33">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Rock Climbing & Rappelling -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="adven" data-price="2350" data-id="tour34">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour34" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour34" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://rishikeshdaytour.com/blog/wp-content/uploads/2021/07/Neer-waterfalls-Rappelling.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Rock Climbing & Rappelling(Chakrata)</h3>
+              <p class="tour-description">Offered near Kimona Falls and Chilmiri Neck, these are popular among thrill-seekers.</p>
+              <a href="#" class="view-details" data-tour="tour34">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Mountain Biking & Stargazing -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="adven" data-price="2350" data-id="tour35">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour35" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour35" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://oberson.com/cdn/shop/articles/velo-montagne-debutants-guide-pour-debuter.jpg?v=1711553001&width=2880" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Mountain Biking & Stargazing(Chakrata)</h3>
+              <p class="tour-description">Enjoy biking through forest trails and clear skies perfect for stargazing in Deoban and Kanasar.</p>
+              <a href="#" class="view-details" data-tour="tour35">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Lakshman Jhula & Ram Jhula -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour36">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour36" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour36" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://wandersky.in/wp-content/uploads/2023/03/laxman-jhula-rishikesh.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Lakshman Jhula & Ram Jhula(Rishikesh)</h3>
+              <p class="tour-description">Iconic suspension bridges offering scenic views and connecting spiritual hubs across the Ganges.</p>
+              <a href="#" class="view-details" data-tour="tour36">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Triveni Ghat -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour37">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour37" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour37" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/a9/84/bb/triveni-ghaat-entrance.jpg?w=1200&h=1200&s=1" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Triveni Ghat(Rishikesh)</h3>
+              <p class="tour-description">A sacred riverbank known for its peaceful Ganga Aarti and spiritual energy.</p>
+              <a href="#" class="view-details" data-tour="tour37">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Parmarth Niketan -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="scene" data-price="2350" data-id="tour38">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour38" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour38" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/26/d3/c0/parmarth-niketan-ashram.jpg?w=900&h=500&s=1" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Parmarth Niketan(Rishikesh)</h3>
+              <p class="tour-description">One of the largest ashrams in Rishikesh, known for yoga, Ganga Aarti, and spiritual teachings.</p>
+              <a href="#" class="view-details" data-tour="tour38">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Neelkanth Mahadev Temple -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="reli" data-price="2350" data-id="tour39">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour39" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour39" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://wandersky.in/wp-content/uploads/2023/08/Neelkanth-Mahadev-Temple-Rishikesh.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Neelkanth Mahadev Temple(Rishikesh)</h3>
+              <p class="tour-description">A revered Lord Shiva temple located in the forested hills above Rishikesh.</p>
+              <a href="#" class="view-details" data-tour="tour39">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Vashishta Cave -->
+          <div class="tour-card fade-in" data-destination="his" data-region="his" data-price="2350" data-id="tour40">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour40" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour40" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.trawell.in/admin/images/upload/148894129Rishikesh_Vashishta_Gufa_Main.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Vashishta Cave(Rishikesh)</h3>
+              <p class="tour-description">An ancient cave where Sage Vashishta is believed to have meditated, now a peaceful retreat.</p>
+              <a href="#" class="view-details" data-tour="tour40">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- River Rafting -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="adven" data-price="2350" data-id="tour41">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour41" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour41" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.solangvalleysportscenter.com/wp-content/uploads/2022/12/istockphoto-1401891400-1024x1024-transformed.jpeg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">River Rafting(Rishikesh)</h3>
+              <p class="tour-description">Experience thrilling rapids of the Ganges, with multiple routes for all levels.</p>
+              <a href="#" class="view-details" data-tour="tour41">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Bungee Jumping -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="adven" data-price="2350" data-id="tour42">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour42" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour42" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://haridwarrishikeshtourism.in/images/places-to-visit/header/jumpin-heights-bungee-jumping-rishikesh-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Bungee Jumping(Rishikesh)</h3>
+              <p class="tour-description">India is highest bungee at 83 meters, run by Jumpin Heights.</p>
+              <a href="#" class="view-details" data-tour="tour42">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Camping & Bonfire -->
+          <div class="tour-card fade-in" data-destination="maldives" data-region="adven" data-price="2350" data-id="tour43">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour43" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour43" data-title="Dehradun" data-price="2350" data-image="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://campgangavatika.com/images/bonfire-in-camp.jpeg" alt="Maldives">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Camping & Bonfire(Rishikesh)</h3>
+              <p class="tour-description">Stay in riverside camps with meals, activities, and night bonfires.</p>
+              <a href="#" class="view-details" data-tour="tour43">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Trekking -->
+          <div class="tour-card fade-in" data-destination="italy" data-region="adven" data-price="60" data-id="tour5">
+            <!-- Added wishlist and cart icons to card -->
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="tour5" data-title="Trekking(Rishikesh)" data-price="60" data-image="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="tour5" data-title="Trekking(Rishikesh)" data-price="60" data-image="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://media1.thrillophilia.com/filestore/8c4endyet4gv16wx0d1otkevk90l_pexels-saikat-ghosh-914128.jpg" alt="Italy">
+            </div>
+            <div class="tour-content">
+              <h3 class="tour-title">Trekking(Rishikesh)</h3>
+              <p class="tour-description">Explore scenic trails like Kunjapuri Temple and Neer Garh Waterfall.</p>
+              <a href="#" class="view-details" data-tour="tour5">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="next-step-btn">
+          <button class="btn next-btn" data-step="2">Next: Choose Accommodation <i class="fas fa-arrow-right"></i></button>
+        </div>
+          
+          
+
+          
+        
+        
+      </div>
+
+      <!-- Step 2: Accommodation -->
+      <div class="step-content step-content-2">
+        <h2 class="section-title fade-in">Accommodation</h2>
+        
+        <div class="filter-container fade-in">
+          <button class="filter-button active" data-filter="all">All Types</button>
+          <button class="filter-button" data-filter="hotel">Hotels</button>
+          <button class="filter-button" data-filter="homestay">Homestays</button>
+          <button class="filter-button" data-filter="bagpacker">Bagpacker</button>
+          <button class="filter-button" data-filter="cozy">Cozy</button>
+          <button class="filter-button" data-filter="comfort">Comfort</button>
+         
+        </div>
+        
+        <div class="tours-grid">
+          <!-- Hyatt Centric Rajpur Road Dehradun -->
+          <div class="tour-card fade-in" data-accommodation="hotel" data-region="comfort" data-price="₹7500" data-id="acc1">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="acc1" data-title="Hyatt Centric Rajpur Road Dehradun" data-price="7500" data-image="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="acc1" data-title="Hyatt Centric Rajpur Road Dehradun" data-price="7500" data-image="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury Hotel">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-hotel accommodation-icon"></i>Hotel</div>
+              <h3 class="tour-title">Hyatt Centric Rajpur Road Dehradun</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-wifi"></i> Free WiFi</span>
+                <span class="feature"><i class="fas fa-swimming-pool"></i> Pool</span>
+                <span class="feature"><i class="fas fa-utensils"></i> Restaurant</span>
+              </div>
+              <a href="#" class="view-details" data-tour="acc1">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Hotel Madhuban -->
+          <div class="tour-card fade-in" data-accommodation="hotel" data-region="comfort" data-price="₹6200" data-id="acc2">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="acc2" data-title="Hotel Madhuban" data-price="6200" data-image="https://cf.bstatic.com/xdata/images/hotel/max1024x768/535783276.jpg?k=69a24ddb83b90966077c8672cfcf692824ea185b68b35dde664a963e0038db8d&o=&hp=1">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="acc2" data-title="Hotel Madhuban" data-price="6200" data-image="https://cf.bstatic.com/xdata/images/hotel/max1024x768/535783276.jpg?k=69a24ddb83b90966077c8672cfcf692824ea185b68b35dde664a963e0038db8d&o=&hp=1">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/535783276.jpg?k=69a24ddb83b90966077c8672cfcf692824ea185b68b35dde664a963e0038db8d&o=&hp=1" alt="Mountain Resort">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-umbrella-beach accommodation-icon"></i>Hotel</div>
+              <h3 class="tour-title">Hotel Madhuban</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-mountain"></i> View</span>
+                <span class="feature"><i class="fas fa-spa"></i> Spa</span>
+                <span class="feature"><i class="fas fa-hiking"></i> Activities</span>
+              </div>
+              <a href="#" class="view-details" data-tour="acc2">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Regenta LP Vilas -->
+          <div class="tour-card fade-in" data-accommodation="homestay" data-region="comfort" data-price="₹5100" data-id="acc3">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="acc3" data-title="Regenta LP Vilas" data-price="5100" data-image="https://cf.bstatic.com/xdata/images/hotel/max1024x768/274889770.jpg?k=13016458c35f38b80538b21c1e3068b91357f5ae0370c43ea6e0b16ffc1f8425&o=&hp=1">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="acc3" data-title="Regenta LP Vilas" data-price="5100" data-image="https://cf.bstatic.com/xdata/images/hotel/max1024x768/274889770.jpg?k=13016458c35f38b80538b21c1e3068b91357f5ae0370c43ea6e0b16ffc1f8425&o=&hp=1">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/274889770.jpg?k=13016458c35f38b80538b21c1e3068b91357f5ae0370c43ea6e0b16ffc1f8425&o=&hp=1" alt="Traditional Homestay">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-home accommodation-icon"></i>Homestay</div>
+              <h3 class="tour-title">Regenta LP Vilas</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-utensils"></i> Home Food</span>
+                <span class="feature"><i class="fas fa-users"></i> Local Host</span>
+                <span class="feature"><i class="fas fa-map-marked-alt"></i> Local Tours</span>
+              </div>
+              <a href="#" class="view-details" data-tour="acc3">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Hotel Inderlok -->
+          <div class="tour-card fade-in" data-accommodation="hotel" data-region="cozy" data-price="₹4400" data-id="acc4">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="acc4" data-title="Hotel Inderlok" data-price="4400" data-image="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/47/45/27/inderlok-hotel.jpg?w=900&h=500&s=1">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="acc4" data-title="Hotel Inderlok" data-price="4400" data-image="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/47/45/27/inderlok-hotel.jpg?w=900&h=500&s=1">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/47/45/27/inderlok-hotel.jpg?w=900&h=500&s=1" alt="Boutique Hotel">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-hotel accommodation-icon"></i>Hotel</div>
+              <h3 class="tour-title">Hotel Inderlok</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-concierge-bell"></i> Service</span>
+                <span class="feature"><i class="fas fa-palette"></i> Design</span>
+                <span class="feature"><i class="fas fa-map-marker-alt"></i> Central</span>
+              </div>
+              <a href="#" class="view-details" data-tour="acc4">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- MJ Residency -->
+          <div class="tour-card fade-in" data-accommodation="homestay" data-region="cozy" data-price="₹3200" data-id="acc5">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="acc5" data-title="MJ Residency" data-price="3200" data-image="https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/200708201216021344-1ee06390a0a411ee8e480a58a9feac02.jpg">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="acc5" data-title="MJ Residency" data-price="3200" data-image="https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/200708201216021344-1ee06390a0a411ee8e480a58a9feac02.jpg">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/200708201216021344-1ee06390a0a411ee8e480a58a9feac02.jpg" alt="Eco Lodge">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-leaf accommodation-icon"></i>Homestay</div>
+              <h3 class="tour-title">MJ Residency</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-leaf"></i> Sustainable</span>
+                <span class="feature"><i class="fas fa-tree"></i> Nature</span>
+                <span class="feature"><i class="fas fa-solar-panel"></i> Green</span>
+              </div>
+              <a href="#" class="view-details" data-tour="acc5">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        
+          
+          <!-- Hotel Padmini Palace -->
+          <div class="tour-card fade-in" data-accommodation="hotel" data-region="cozy" data-price="₹3500" data-id="acc6">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="acc6" data-title="Hotel Padmini Palace" data-price="3500" data-image="https://hotelpadminipalace.in/img/slider/Padmini%20Palace.jpg">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="acc6" data-title="Hotel Padmini Palace" data-price="3500" data-image="https://hotelpadminipalace.in/img/slider/Padmini%20Palace.jpg">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://hotelpadminipalace.in/img/slider/Padmini%20Palace.jpg" alt="Eco Lodge">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-leaf accommodation-icon"></i>Hotel</div>
+              <h3 class="tour-title">Hotel Padmini Palace</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-leaf"></i> Sustainable</span>
+                <span class="feature"><i class="fas fa-tree"></i> Nature</span>
+                <span class="feature"><i class="fas fa-solar-panel"></i> Green</span>
+              </div>
+              <a href="#" class="view-details" data-tour="acc6">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        
+                  
+          <!-- Hotel Samrat -->
+          <div class="tour-card fade-in" data-accommodation="hotel" data-region="bagpacker" data-price="₹850" data-id="acc7">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="acc7" data-title="Hotel Samrat" data-price="850" data-image="https://cf.bstatic.com/xdata/images/hotel/max1024x768/315854187.jpg?k=96a388fb34d4b1b7cf835eee60b972668dfcfdb492e0982ed5506552c3285d42&o=&hp=1">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="acc7" data-title="Hotel Samrat" data-price="850" data-image="https://cf.bstatic.com/xdata/images/hotel/max1024x768/315854187.jpg?k=96a388fb34d4b1b7cf835eee60b972668dfcfdb492e0982ed5506552c3285d42&o=&hp=1">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/315854187.jpg?k=96a388fb34d4b1b7cf835eee60b972668dfcfdb492e0982ed5506552c3285d42&o=&hp=1" alt="Eco Lodge">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-leaf accommodation-icon"></i>Hotel</div>
+              <h3 class="tour-title">Hotel Samrat</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-leaf"></i> Sustainable</span>
+                <span class="feature"><i class="fas fa-tree"></i> Nature</span>
+                <span class="feature"><i class="fas fa-solar-panel"></i> Green</span>
+              </div>
+              <a href="#" class="view-details" data-tour="acc7">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+                  
+          <!-- FabHotel Krishna Heights -->
+          <div class="tour-card fade-in" data-accommodation="hotel" data-region="bagpacker" data-price="₹1050" data-id="acc8">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="acc8" data-title="FabHotel Krishna Heights" data-price="1050" data-image="https://cf.bstatic.com/xdata/images/hotel/max1024x768/584985170.jpg?k=f9dc7596d8e0e9d304d56d7f61bb99da14fb38875425701e03ececdcdf9f9e14&o=&hp=1">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="acc8" data-title="FabHotel Krishna Heights" data-price="1050" data-image="https://cf.bstatic.com/xdata/images/hotel/max1024x768/584985170.jpg?k=f9dc7596d8e0e9d304d56d7f61bb99da14fb38875425701e03ececdcdf9f9e14&o=&hp=1">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/584985170.jpg?k=f9dc7596d8e0e9d304d56d7f61bb99da14fb38875425701e03ececdcdf9f9e14&o=&hp=1" alt="Eco Lodge">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-leaf accommodation-icon"></i>Hotel</div>
+              <h3 class="tour-title">FabHotel Krishna Heights</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-leaf"></i> Sustainable</span>
+                <span class="feature"><i class="fas fa-tree"></i> Nature</span>
+                <span class="feature"><i class="fas fa-solar-panel"></i> Green</span>
+              </div>
+              <a href="#" class="view-details" data-tour="acc8">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+                  
+          <!-- Hotel Vishal Residency -->
+          <div class="tour-card fade-in" data-accommodation="hotel" data-region="bagpacker" data-price="₹1300" data-id="acc9">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="acc9" data-title="Hotel Vishal Residency" data-price="1300" data-image="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="acc9" data-title="Hotel Vishal Residency" data-price="1300" data-image="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://r1imghtlak.mmtcdn.com/10fd8104b24c11e9be6b0242ac140005.jpg" alt="Eco Lodge">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-leaf accommodation-icon"></i>Hotel</div>
+              <h3 class="tour-title">Hotel Vishal Residency</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-leaf"></i> Sustainable</span>
+                <span class="feature"><i class="fas fa-tree"></i> Nature</span>
+                <span class="feature"><i class="fas fa-solar-panel"></i> Green</span>
+              </div>
+              <a href="#" class="view-details" data-tour="acc9">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          </div>
+        
+        
+      
+      
+    
+
+
+        <div class="next-step-btn">
+          <button class="btn prev-btn" data-step="1"><i class="fas fa-arrow-left"></i> Back: Destinations</button>
+          <button class="btn next-btn" data-step="3">Next: Choose Transport <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Step 3: Taxis -->
+      <div class="step-content step-content-3">
+        <h2 class="section-title fade-in">Taxis</h2>
+
+        <div class="filter-container fade-in">
+          <button class="filter-button active" data-filter="all">All Types</button>
+          <button class="filter-button" data-filter="hatchback">Hatchback</button>
+          <button class="filter-button" data-filter="sedan">Sedan</button>
+          <button class="filter-button" data-filter="suv">SUV</button>
+          <button class="filter-button" data-filter="standard">Standard</button>
+          <button class="filter-button" data-filter="prime">Prime</button>
+        </div>
+
+        <div class="tours-grid">
+          <!-- Hatchback -->
+          <div class="tour-card fade-in" data-taxi="hatchback,standard" data-id="taxi1">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="taxi1" data-title="Standard Sedan" data-price="15"
+                data-image="https://cdn.suzuki.co.uk/suzuki-gb/irjaykm1/vlcsnap-2024-06-14-01h41m43s687.png?width=1080&quality=75&format=webp">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="taxi1" data-title="Standard Sedan" data-price="15"
+                data-image="https://cdn.suzuki.co.uk/suzuki-gb/irjaykm1/vlcsnap-2024-06-14-01h41m43s687.png?width=1080&quality=75&format=webp">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img
+                src="https://cdn.suzuki.co.uk/suzuki-gb/irjaykm1/vlcsnap-2024-06-14-01h41m43s687.png?width=1080&quality=75&format=webp"
+                alt="Standard Sedan">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-car taxi-icon"></i>Swift, i10</div>
+              <h3 class="tour-title">Hatchback</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-user"></i> 5 Seats</span>
+                <span class="feature"><i class="fas fa-suitcase"></i> 2 Bags</span>
+                <span class="feature"><i class="fas fa-snowflake"></i> AC</span>
+              </div>
+              
+                narrow hill roads with ease and comfort.</p>
+              <a href="#" class="view-details" data-tour="taxi1">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Sedan -->
+          <div class="tour-card fade-in" data-taxi="sedan,standard" data-id="taxi2">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="taxi2" data-title="Premium SUV" data-price="20"
+                data-image="https://imgd.aeplcdn.com/664x374/ec/34/01/17785/img/m/Maruti-Suzuki-Swift-Dzire-Right-Front-Three-Quarter-48811_ol.jpg?v=201711021421&q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="taxi2" data-title="Premium SUV" data-price="20"
+                data-image="https://imgd.aeplcdn.com/664x374/ec/34/01/17785/img/m/Maruti-Suzuki-Swift-Dzire-Right-Front-Three-Quarter-48811_ol.jpg?v=201711021421&q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img
+                src="https://imgd.aeplcdn.com/664x374/ec/34/01/17785/img/m/Maruti-Suzuki-Swift-Dzire-Right-Front-Three-Quarter-48811_ol.jpg?v=201711021421&q=80"
+                alt="Premium SUV">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-truck-monster taxi-icon"></i>Swift Dzire, Xcent</div>
+              <h3 class="tour-title">Sedan</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-user"></i> 5 Seats</span>
+                <span class="feature"><i class="fas fa-suitcase"></i> 4 Bags</span>
+                <span class="feature"><i class="fas fa-mountain"></i> AC</span>
+              </div>
+              
+              <a href="#" class="view-details" data-tour="taxi2">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- SUV -->
+          <div class="tour-card fade-in" data-taxi="suv,standard" data-id="taxi3">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="taxi3" data-title="Luxury Sedan" data-price="25"
+                data-image="https://imgd.aeplcdn.com/1056x594/n/c6es93a_1572125.jpg?q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="taxi3" data-title="Luxury Sedan" data-price="25"
+                data-image="https://imgd.aeplcdn.com/1056x594/n/c6es93a_1572125.jpg?q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://imgd.aeplcdn.com/1056x594/n/c6es93a_1572125.jpg?q=80" alt="Luxury Sedan">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-car-side taxi-icon"></i>Ertiga</div>
+              <h3 class="tour-title">SUV</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-glass-martini-alt"></i> 8 seats</span>
+                <span class="feature"><i class="fas fa-user-tie"></i> 6 bags</span>
+                <span class="feature"><i class="fas fa-wifi"></i> WiFi</span>
+              </div>
+              
+                terrains and scenic mountain routes with ease and safety.</p>
+              <a href="#" class="view-details" data-tour="taxi3">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Prime Sedan -->
+          <div class="tour-card fade-in" data-taxi="sedan,prime" data-id="taxi4">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="taxi4" data-title="Minivan" data-price="30"
+                data-image="https://www.financialexpress.com/auto/images/model-city-seo-image-1726215712608.jpg">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="taxi4" data-title="Minivan" data-price="30"
+                data-image="https://www.financialexpress.com/auto/images/model-city-seo-image-1726215712608.jpg">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://www.financialexpress.com/auto/images/model-city-seo-image-1726215712608.jpg"
+                alt="Minivan">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-shuttle-van taxi-icon"></i>Honda City</div>
+              <h3 class="tour-title">Prime Sedan</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-users"></i> 4 sears</span>
+                <span class="feature"><i class="fas fa-suitcase"></i> 5 bags</span>
+                <span class="feature"><i class="fas fa-tv"></i> Entertainment</span>
+              </div>
+             
+              
+              <a href="#" class="view-details" data-tour="taxi4">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Prime SUV -->
+          <div class="tour-card fade-in" data-taxi="suv,prime" data-id="taxi5">
+            <div class="card-icons">
+              <div class="card-icon wishlist-icon" data-id="taxi5" data-title="Electric Car" data-price="35"
+                data-image="https://imgd.aeplcdn.com/1056x594/n/m5tuhab_1655935.png?q=80">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="card-icon cart-icon-btn" data-id="taxi5" data-title="Electric Car" data-price="35"
+                data-image="https://imgd.aeplcdn.com/1056x594/n/m5tuhab_1655935.png?q=80">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="tour-image">
+              <img src="https://imgd.aeplcdn.com/1056x594/n/m5tuhab_1655935.png?q=80" alt="Electric Car">
+            </div>
+            <div class="tour-content">
+              <div class="tour-destination"><i class="fas fa-leaf taxi-icon"></i>Innova</div>
+              <h3 class="tour-title">Prime SUV</h3>
+              <div class="feature-icons">
+                <span class="feature"><i class="fas fa-bolt"></i> 7 seats</span>
+                <span class="feature"><i class="fas fa-user"></i> </span>
+                <span class="feature"><i class="fas fa-leaf"></i> Zero Emissions</span>
+              </div>
+             
+              <a href="#" class="view-details" data-tour="taxi5">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="next-step-btn">
+          <button class="btn prev-btn" data-step="2"><i class="fas fa-arrow-left"></i> Back: Accommodation</button>
+          <button class="btn" id="completeBookingBtn">Complete Booking <i class="fas fa-check"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tour Details Modal -->
+  <div class="modal" id="tourModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Tour Details</h3>
+        <span class="modal-close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img id="modalImage" src="/placeholder.svg" alt="Tour Image">
+        </div>
+        
+        <h4>Highlights</h4>
+        <p id="modalDescription">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
+        
+        <ul id="modalHighlights">
+        </ul>
+
+
+
+        
+      </div>
+      <div class="modal-footer">
+        <div class="modal-price" id="modalPrice">$0.00</div>
+        <!-- Added wishlist button next to add to cart button -->
+        <div class="modal-actions">
+          <a href="#" class="btn" id="modalWishlistBtn">Add to Wishlist</a>
+          <a href="#" class="btn" id="modalCartBtn">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Item added to cart!</div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        <p>Copyright © 2025 Sanchari</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('nav a, .footer-links a');
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href.startsWith('#') && href !== '#') {
+          e.preventDefault();
+          const targetSection = document.querySelector(href);
+          
+          if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 100;
+            
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Animate elements on scroll
+    const animateElements = document.querySelectorAll('.fade-in');
+    
+    function checkScroll() {
+      animateElements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    }
+    
+    // Call the animation function on scroll
+    window.addEventListener('scroll', checkScroll);
+    
+    // Call once on page load to animate elements already in view
+    window.addEventListener('load', checkScroll);
+
+    // Tour card hover effect
+    const tourCards = document.querySelectorAll('.tour-card');
+    
+    tourCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px)';
+        this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+        this.style.boxShadow = '';
+      });
+    });
+
+    // Tour data - Updated with individual tour data
+    const tourData = {
+      // Destinations
+      'tour1': {
+        title: 'Robbers cave',
+        destination: 'Visit',
+        price: '₹35',
+        image: 'https://t.eucdn.in/tourism/lg/robbers-cave-8533842.webp',
+        description: `
+    <ul>
+      <li>✅ Discover a natural cave with a flowing stream inside</li>
+      <li>✅ Enjoy a refreshing walk through knee-deep water</li>
+      <li>✅ Surrounded by lush hills and scenic picnic spots</li>
+
+    </ul>
+    `  },
+     'tour2': {
+  title: 'Sahastradhara',
+  destination: 'Visit',
+  price: '₹0',
+  image: 'https://www.sterlingholidays.com/activities/dehradun/sahastradhara.jpg.imgw.1280.1280.jpeg',
+  description: `
+    <ul>
+      <li>✅ Relax at natural sulphur water springs</li>
+      <li>✅ Explore nearby ropeway rides and ancient caves</li>
+      <li>✅ Perfect destination for picnics and scenic views</li>
+    </ul>
+  `
+      },
+      'tour3': {
+        title: 'Malsi Deer Park',
+        destination: 'Visit',
+        price: '₹20',
+        image: 'https://dehraduntourism.co.in/images/places-to-visit/header/malsi-deer-park-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg',
+        description: `
+    <ul>
+      <li>✅ Spot deer, rabbits, and birds in open enclosures</li>
+      <li>✅ Enjoy a play area and on-site snack options</li>
+      <li>✅ Ideal peaceful weekend getaway for families</li>
+
+    </ul>
+    `  },
+      'tour4': {
+        title: 'Lachhiwala Nature Park',
+        destination: 'Visit',
+        price: '₹60',
+        image: 'https://dehraduntourism.co.in/images/places-to-visit/header/lacchiwalla-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },
+      'tour5': {
+        title: 'Trekking(Rishikesh)',
+        destination: 'Visit',
+        price: '₹60',
+        image: 'https://kamayhotels.com/wp-content/uploads/2024/07/Trekking_in_Domail_Kashmir.webp',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },
+      'tour6': {
+        title: 'Maldevta',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://rajajijunglesafari.com/wp-content/uploads/Maldevta-Dehradun.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour7': {
+        title: 'Shikhar Fall',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://rajajijunglesafari.com/wp-content/uploads/shikhar-fall-2.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour8': {
+        title: 'Forest Research Institute (FRI)',
+        destination: 'Visit',
+        price: '₹50',
+        image: 'https://wandersky.in/wp-content/uploads/2023/08/Forest-research-institude-of-dehradun.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour9': {
+        title: 'Tapkeshwar Temple',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://gouttrakhand.com/wp-content/uploads/2023/02/tapkeshwar-temple-significance-in-hindi-2.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour10': {
+        title: 'Buddha Temple (Mindrolling Monastery)',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://s7ap1.scene7.com/is/image/incredibleindia/mindrolling-monastery-dehradun1-attr-hero?qlt=82&ts=1726647062584',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour11': {
+        title: 'Kalinga War Memorial',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://s7ap1.scene7.com/is/image/incredibleindia/khalanga-war-memorial-dehradun-uttarakhand-2-attr-hero?qlt=82&ts=1726646986527',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour12': {
+        title: 'Clock Tower (Ghanta Ghar)',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://dehraduntourism.co.in/images//tourist-places/ghanta-ghar-clock-tower-dehradun/ghanta-ghar-clock-tower-dehradun-india-tourism-history.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour13': {
+        title: 'Guru Ram Rai Gurudwara',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://dehraduntourism.co.in/images/places-to-visit/header/guru-ram-rai-gurudwara-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour14': {
+        title: 'Shri Prakasheshwar Mahadev Temple',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://t.eucdn.in/tourism/lg-jpg/laxman-siddh-temple-8158523.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour15': {
+        title: 'Laxman Siddh Temple',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://rajajijunglesafari.com/wp-content/uploads/Santala-Devi-Temple-8-1.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour16': {
+        title: 'Santala Devi Temple',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://thedehradun.in/wp-content/uploads/2022/09/The-Maa-Santala-Temple.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour17': {
+        title: 'Daat Kali Temple',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://www.sacredyatra.com/images/temples/daat-kali-temple.webp',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `
+      },'tour18': {
+        title: 'George Everest’s House',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://t.eucdn.in/tourism/lg-jpg/sir-george-everest-house-5247638.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `   },'tour19': {
+        title: 'Nag Tibba Trek',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://moxtain.s3.ap-south-1.amazonaws.com/blogs/NagTibbaBeginnersTrek/nag-tibba-range.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour20': {
+        title: 'Bhadraj Temple Trek',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://t.eucdn.in/tourism/lg/bhadraj-temple-7903192.webp',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour21': {
+        title: 'Chhaskhet Trek',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://www.trailhikers.in/wp-content/uploads/2022/11/Chhaskhet-Nature-Walk-001.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour22': {
+        title: 'Kimadi',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://www.uttarakhandexplorer.in/wp-content/uploads/2023/10/Himalayan-Yog-Ashram-25.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour23': {
+        title: 'Rajaji National Park',
+        destination: 'Visit',
+        price: '₹150',
+        image: 'https://campinginrishikesh.in/wp-content/uploads/2023/12/rajaji_national_park.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour24': {
+        title: 'MDDA Park',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://dehraduntourism.co.in/images//tourist-places/mdda-park-dehradun/mdda-park-dehradun-tourism-entry-ticket-price.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour25': {
+        title: 'Pacific Mall & Centrio Mall',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ_P9sL9DdvTj1Io0JXE5jAB-4LKSPW5GLXw&s',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour26': {
+        title: 'Fun Valley Water Park',
+        destination: 'Visit',
+        price: '₹800',
+        image: 'https://dehraduntourism.co.in/images/places-to-visit/header/fun-valley-dehradun-tourism-entry-fee-timings-holidays-reviews-header.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour27': {
+        title: 'Ellora’s Bakery',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://www.tripnight.com/public/thumbs/monuments/624/OQMDve6cHWwG_468_738.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour28': {
+        title: 'Tiger Falls',
+        destination: 'Visit',
+        price: '₹30',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvXXVHXAoZgIvUqFpgsvIv_5XIhrMCMDbfIA&s',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour29': {
+        title: 'Deoban',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4NXUbbLAO4aLmboNFBYu_rAtwCo26oe2zCA&s',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour30': {
+        title: 'Budher Caves',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSuSCkmOHop5iGoM44IFNzZSS0htS3RbASUQ&s',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour31': {
+        title: 'Kanasar Meadows',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1opT0AgsiXukixsF052IBCjMjv7Ut1tv3mw&s',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour32': {
+        title: 'Chilmiri Neck',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://res.cloudinary.com/chasset/f_webp,h_480,w_720/hbimages/places/Chilmiri-Neck-5-Chakrata-Dehradun-Uttarakhand.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour33': {
+        title: 'Trekking & Camping',
+        destination: 'Visit',
+        price: '₹2000',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7VkgTxljsxBwH590ajkQ4h-sBrbzw4WsxpA&s',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour34': {
+        title: 'Rock Climbing & Rappelling',
+        destination: 'Visit',
+        price: '₹1200',
+        image: 'https://www.holidify.com/images/cmsuploads/compressed/110723-F-RC891-023_20190130182637.JPG',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour35': {
+        title: 'Mountain Biking & Stargazing',
+        destination: 'Visit',
+        price: '₹1000',
+        image: 'https://www.aspensnowmass.com/-/media/aspen-snowmass/images/image-cta-with-title-and-description/image-cta-card-wide/summer/2022/bike-locals-clinic-image-cta-wide-062722.jpg?mw=1600&mh=488&hash=602BAFD0E25EA33AE2B6165007A86448',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour36': {
+        title: 'Lakshman Jhula & Ram Jhula',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://wandersky.in/wp-content/uploads/2023/03/laxman-jhula-rishikesh.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour37': {
+        title: 'Triveni Ghat',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://media1.thrillophilia.com/filestore/hnttf0iqtmioi4bbfmcwwbpzbehf_1587022695_shutterstock_1005613216.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour38': {
+        title: 'Parmarth Niketan',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/26/d3/c0/parmarth-niketan-ashram.jpg?w=900&h=500&s=1',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour39': {
+        title: 'Neelkanth Mahadev Temple',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://wandersky.in/wp-content/uploads/2023/08/Neelkanth-Mahadev-Temple-Rishikesh.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour40': {
+        title: 'Vashishta Cave',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'data:image/jpeg;base64,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',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour41': {
+        title: 'River Rafting',
+        destination: 'Visit',
+        price: '₹1700',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaDlixDOCiXcrYIbl7m5WOdsuSop5V8F2FiQ&s',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour42': {
+        title: 'Bungee Jumping',
+        destination: 'Visit',
+        price: '₹4000',
+        image: 'https://i0.wp.com/apeejay.news/wp-content/uploads/2025/01/310125-bungee-jumping-F.jpg?fit=569%2C509&ssl=1',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour43': {
+        title: 'Camping & Bonfire',
+        destination: 'Visit',
+        price: '₹2500',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREmVxbcR_XKw3SBt-bTAlD2J8warN-Q_5uEA&s',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour44': {
+        title: 'Trekking',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAj7HAJ3oRVL_UO0U19onw7BFNDEO0K2CgCQ&s',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour45': {
+        title: 'Mall Road',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://media.holidify.com/images/cmsuploads/compressed/1a1a73c77d301ea00cbf36280703468d_20241205154200.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour47': {
+        title: 'Lal Tibba',
+        destination: 'Visit',
+        price: '₹50',
+        image: 'https://res.cloudinary.com/jerrick/image/upload/c_scale,f_jpg,q_auto/671625b3680a6d001d58a644.png',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour48': {
+        title: 'Kempty Falls',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://www.tusktravel.com/blog/wp-content/uploads/2023/09/Valley-of-Kempty-Falls-Uttarakhand.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour49': {
+        title: 'Company Garden',
+        destination: 'Visit',
+        price: '₹25',
+        image: 'https://www.exoticmiles.com/mussoorie/municipal-garden/',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour50': {
+        title: 'Gun Hill',
+        destination: 'Visit',
+        price: '₹200',
+        image: 'https://www.connectingtraveller.com/images/localtip/1628491877gun_hill-611220775c77c917ac7aaaaedb72c071f014b0456617ec2544b3015af48a7286.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour51': {
+        title: 'Camel’s Back Road',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://static.toiimg.com/thumb/30115216.cms?resizemode=75&width=1200&height=900',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour52': {
+        title: 'Christ Church',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://gtcholidays.com/wp-content/uploads/2020/11/uk-mussoorie-christ-church-01.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour53': {
+        title: 'Library Bazaar',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/41/d7/38/library-bazar.jpg?w=900&h=-1&s=1',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour54': {
+        title: ' Cloud’s End',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://t.eucdn.in/tourism/lg/clouds-end-9897803.webp',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour55': {
+        title: 'Jharipani & Bhatta Falls',
+        destination: 'Visit',
+        price: '₹0',
+        image: 'https://optimatravels.com/images/uttarakhand-images/kempty-falls.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },'tour56': {
+        title: 'Adventure Park & Skywalks',
+        destination: 'Visit',
+        price: '₹50',
+        image: 'https://www.mussoorieadventurepark.com/images/69.jpg',
+        description: `
+    <ul>
+      <li>✅ Discover the rich spiritual heritage of Haridwar</li>
+      <li>✅ Visit iconic temples and sacred ghats</li>
+      <li>✅ Witness the mesmerizing Ganga Aarti</li>
+      <li>✅ Explore vibrant local markets</li>
+      <li>✅ Immerse yourself in the divine cultural traditions</li>
+    </ul>
+    `  },
+
+      // Accommodations
+      'acc1': {
+        title: 'Hyatt Centric Rajpur Road Dehradun',
+        destination: 'Hotel',
+        price: '₹7500',
+        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        description: '5-star hotel with modern amenities, Wi-Fi, and valet parking on Rajpur Road. Ideal for a premium stay in Dehradun’s prime location.'
+      },
+      'acc2': {
+        title: 'Hotel Madhuban',
+        destination: 'Hotel',
+        price: '₹6200',
+        image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/535783276.jpg?k=69a24ddb83b90966077c8672cfcf692824ea185b68b35dde664a963e0038db8d&o=&hp=1',
+        description: 'Elegant 4-star hotel offering Jacuzzi, lush surroundings, and warm hospitality. Perfect for a relaxed and upscale experience.'
+      },
+      'acc3': {
+        title: 'Regenta LP Vilas',
+        destination: 'Homestay',
+        price: '₹5100',
+        image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/274889770.jpg?k=13016458c35f38b80538b21c1e3068b91357f5ae0370c43ea6e0b16ffc1f8425&o=&hp=1',
+        description: 'Luxurious rooms with scenic views and modern comforts on Chakrata Road. A great choice for leisure and business travelers alike.'
+      },
+      'acc4': {
+        title: 'Hotel Inderlok',
+        destination: 'Hotel',
+        price: '₹4400',
+        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/47/45/27/inderlok-hotel.jpg?w=900&h=500&s=1',
+        description: 'Centrally located with spacious rooms and a great in-house restaurant. Combines comfort, quality service, and affordability.'
+      },
+      'acc5': {
+        title: 'MJ Residency',
+        destination: 'Homestay',
+        price: '₹3200',
+        image: 'https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/200708201216021344-1ee06390a0a411ee8e480a58a9feac02.jpg',
+        description: 'Clean and cozy rooms on Haridwar Road near top attractions.Good service and accessibility for tourists.'
+      },
+      'acc6': {
+        title: 'Hotel Padmini Palace',
+        destination: 'Hotel',
+        price: '₹3500',
+        image: 'https://hotelpadminipalace.in/img/slider/Padmini%20Palace.jpg',
+        description: 'Close to Jolly Grant Airport with 4-star features and a pool. Best for a peaceful yet well-equipped stay.'
+      },
+      'acc7': {
+        title: 'Hotel Samrat',
+        destination: 'Hotel',
+        price: '₹850',
+        image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/315854187.jpg?k=96a388fb34d4b1b7cf835eee60b972668dfcfdb492e0982ed5506552c3285d42&o=&hp=1',
+        description: 'Affordable rooms on Tyagi Road with essential amenities. Known for its friendly staff and simplicity.'
+      },
+      'acc8': {
+        title: 'FabHotel Krishna Heights',
+        destination: 'Hotel',
+        price: '₹1050',
+        image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/584985170.jpg?k=f9dc7596d8e0e9d304d56d7f61bb99da14fb38875425701e03ececdcdf9f9e14&o=&hp=1',
+        description: 'Budget stay near Sahastradhara Road with Wi-Fi and 24x7 security. Ideal for solo travelers and short stays.'
+      },
+      'acc9': {
+        title: 'Hotel Vishal Residency',
+        destination: 'Hotel',
+        price: '₹1300',
+        image: 'https://r1imghtlak.mmtcdn.com/10fd8104b24c11e9be6b0242ac140005.jpg',
+        description: 'Neat, well-furnished rooms near Haridwar Road. Great for both tourists and corporate guests.'
+      },
+      
+      
+      
+      // Taxis
+      'taxi1': {
+        title: 'Swift, i10',
+        destination: 'Hatchback',
+        price: '₹15/km',
+        image: 'https://cdn.suzuki.co.uk/suzuki-gb/irjaykm1/vlcsnap-2024-06-14-01h41m43s687.png?width=1080&quality=75&format=webp',
+        description: "Navigate the scenic roads of Uttarakhand with ease in a compact hatchback taxi like the Swift or i10 — perfect for narrow hill routes and city travel alike. Offering great mileage, comfortable seating, and expert local drivers, it’s an ideal choice for small groups or solo travelers. Whether you're exploring spiritual spots, hill stations, or hidden trails, this ride ensures a smooth and budget-friendly journey."
+      },
+      'taxi2': {
+        title: 'Swift Dzire, Xcent',
+        destination: 'Sedan',
+        price: '₹20/km',
+        image: 'https://imgd.aeplcdn.com/664x374/ec/34/01/17785/img/m/Maruti-Suzuki-Swift-Dzire-Right-Front-Three-Quarter-48811_ol.jpg?v=201711021421&q=80',
+        description: 'Experience comfort and class on Uttarakhand’s roads with a sedan taxi like the Dzire or Xcent, ideal for longer drives and family trips. With spacious interiors, smooth suspension, and ample boot space, these cars handle both hills and highways with ease. Perfect for airport transfers, sightseeing, or intercity travel, they offer a relaxed and reliable ride through the mountains.'
+      },
+      'taxi3': {
+        title: 'Ertiga',
+        destination: 'SUV',
+        price: '₹25/km',
+        image: 'https://imgd.aeplcdn.com/1056x594/n/c6es93a_1572125.jpg?q=80',
+        description: 'Travel through Uttarakhand with power and space in an SUV taxi like the Ertiga, perfect for families or groups seeking comfort and versatility. With higher ground clearance, strong grip, and roomy interiors, it’s built for hilly terrains and longer journeys. Whether it’s an offbeat trail or a popular hill station, this SUV ensures a safe, smooth, and scenic ride.'
+      },
+      'taxi4': {
+        title: 'Honda City, Hyundai Verna',
+        destination: 'Prime Sedan',
+        price: '₹30/km',
+        image: 'https://www.financialexpress.com/auto/images/model-city-seo-image-1726215712608.jpg',
+        description: 'Explore Uttarakhand in style with a prime sedan like the Verna or Honda City, offering premium comfort, sleek design, and a smooth ride. Ideal for business trips or luxury travel, these cars combine performance with elegance on both plains and hills. Enjoy a refined driving experience with plush interiors, advanced features, and expert chauffeurs for a truly upscale journey.'
+      },
+      'taxi5': {
+        title: 'Innova, Gloster',
+        destination: 'Prime SUV',
+        price: '₹35/km',
+        image: 'https://imgd.aeplcdn.com/1056x594/n/m5tuhab_1655935.png?q=80',
+        description: 'Discover Uttarakhand with unmatched power and luxury in a prime SUV like the Innova or Gloster, perfect for large families or elite travel. These vehicles offer spacious seating, top-notch comfort, and superior performance across steep hills and long highways. Whether it’s a mountain retreat or a multi-city tour, enjoy a premium, safe, and commanding ride every mile.'
+      }
+    };
+
+    // Cart and Wishlist functionality
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+    // Update cart and wishlist counts
+    function updateCounts() {
+      document.querySelector('.cart-count-number').textContent = cart.length;
+      document.querySelector('.wishlist-count').textContent = wishlist.length;
+    }
+
+    // Initialize counts
+    updateCounts();
+
+    // Show toast notification
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Add to cart functionality
+    document.querySelectorAll('.cart-icon-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const id = this.getAttribute('data-id');
+        const title = this.getAttribute('data-title');
+        const price = this.getAttribute('data-price');
+        const image = this.getAttribute('data-image');
+        
+        // Check if item is already in cart
+        const existingItem = cart.find(item => item.id === id);
+        
+        if (!existingItem) {
+          cart.push({
+            id,
+            title,
+            price,
+            image,
+            quantity: 1
+          });
+          
+          localStorage.setItem('cart', JSON.stringify(cart));
+          updateCounts();
+          showToast(`${title} added to cart!`);
+        } else {
+          showToast(`${title} is already in your cart!`);
+        }
+      });
+    });
+
+    // Add to wishlist functionality
+    document.querySelectorAll('.wishlist-icon').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const id = this.getAttribute('data-id');
+        const title = this.getAttribute('data-title');
+        const price = this.getAttribute('data-price');
+        const image = this.getAttribute('data-image');
+        
+        // Check if item is already in wishlist
+        const existingItem = wishlist.find(item => item.id === id);
+        
+        if (!existingItem) {
+          wishlist.push({
+            id,
+            title,
+            price,
+            image
+          });
+          
+          localStorage.setItem('wishlist', JSON.stringify(wishlist));
+          updateCounts();
+          this.classList.add('active');
+          showToast(`${title} added to wishlist!`);
+        } else {
+          // Remove from wishlist if already added
+          wishlist = wishlist.filter(item => item.id !== id);
+          localStorage.setItem('wishlist', JSON.stringify(wishlist));
+          updateCounts();
+          this.classList.remove('active');
+          showToast(`${title} removed from wishlist!`);
+        }
+      });
+    });
+
+    // Check if items are in wishlist and update UI
+    function updateWishlistUI() {
+      document.querySelectorAll('.wishlist-icon').forEach(btn => {
+        const id = btn.getAttribute('data-id');
+        const existingItem = wishlist.find(item => item.id === id);
+        
+        if (existingItem) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    // Update wishlist UI on page load
+    updateWishlistUI();
+
+    // Modal functionality for each tour
+    
+    const modal = document.getElementById('tourModal');
+    const modalClose = document.querySelector('.modal-close');
+    const viewDetailsButtons = document.querySelectorAll('.view-details');
+    
+    // Open modal with tour details - Individual modal for each tour
+    viewDetailsButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const tourId = this.getAttribute('data-tour');
+        const tour = tourData[tourId];
+        
+        if (tour) {
+          document.getElementById('modalTitle').textContent = `${tour.destination} - ${tour.title}`;
+          document.getElementById('modalImage').src = tour.image;
+          document.getElementById('modalImage').alt = tour.title;
+          document.getElementById('modalDescription').innerHTML = tour.description;
+
+          document.getElementById('modalPrice').textContent = tour.price;
+          
+          // Set up modal buttons with correct data attributes
+          const modalWishlistBtn = document.getElementById('modalWishlistBtn');
+          const modalCartBtn = document.getElementById('modalCartBtn');
+          
+          modalWishlistBtn.setAttribute('data-id', tourId);
+          modalWishlistBtn.setAttribute('data-title', tour.title);
+          modalWishlistBtn.setAttribute('data-price', tour.price.replace('₹', ''));
+          modalWishlistBtn.setAttribute('data-image', tour.image);
+          
+          modalCartBtn.setAttribute('data-id', tourId);
+          modalCartBtn.setAttribute('data-title', tour.title);
+          modalCartBtn.setAttribute('data-price', tour.price.replace('₹', ''));
+          modalCartBtn.setAttribute('data-image', tour.image);
+          
+          // Check if item is in wishlist and update button text
+          const inWishlist = wishlist.some(item => item.id === tourId);
+          modalWishlistBtn.textContent = inWishlist ? 'Remove from Wishlist' : 'Add to Wishlist';
+          
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+      });
+    });
+    
+    // Modal wishlist button functionality
+    document.getElementById('modalWishlistBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const id = this.getAttribute('data-id');
+      const title = this.getAttribute('data-title');
+      const price = this.getAttribute('data-price');
+      const image = this.getAttribute('data-image');
+      
+      // Check if item is already in wishlist
+      const existingItem = wishlist.find(item => item.id === id);
+      
+      if (!existingItem) {
+        wishlist.push({
+          id,
+          title,
+          price,
+          image
+        });
+        
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        updateCounts();
+        updateWishlistUI();
+        this.textContent = 'Remove from Wishlist';
+        showToast(`${title} added to wishlist!`);
+      } else {
+        // Remove from wishlist if already added
+        wishlist = wishlist.filter(item => item.id !== id);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        updateCounts();
+        updateWishlistUI();
+        this.textContent = 'Add to Wishlist';
+        showToast(`${title} removed from wishlist!`);
+      }
+    });
+    
+    // Modal cart button functionality
+    document.getElementById('modalCartBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const id = this.getAttribute('data-id');
+      const title = this.getAttribute('data-title');
+      const price = this.getAttribute('data-price');
+      const image = this.getAttribute('data-image');
+      
+      // Check if item is already in cart
+      const existingItem = cart.find(item => item.id === id);
+      
+      if (!existingItem) {
+        cart.push({
+          id,
+          title,
+          price,
+          image,
+          quantity: 1
+        });
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCounts();
+        showToast(`${title} added to cart!`);
+      } else {
+        showToast(`${title} is already in your cart!`);
+      }
+    });
+    
+    // Close modal
+    modalClose.addEventListener('click', function() {
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    });
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-button');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Find parent step content
+        const stepContent = this.closest('.step-content');
+        
+        // Remove active class from all buttons in this step
+        stepContent.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        const tourCards = stepContent.querySelectorAll('.tour-card');
+        
+        // Filter tour cards
+        tourCards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = 'block';
+          } else if (filter === 'his' || filter === 'reli' || filter === 'adven' || filter === 'mark' || filter === 'scene' || filter === 'park') {
+            if (card.getAttribute('data-region') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          } else if (filter === 'hotel' || filter === 'homestay') {
+            if (card.getAttribute('data-accommodation') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          } else if (filter === 'bagpacker' || filter === 'cozy' || filter === 'comfort') {
+            if (card.getAttribute('data-region') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          } else if (filter === 'hatchback' || filter === 'sedan' || filter === 'suv') {
+            const taxiTypes = card.getAttribute('data-taxi').split(/[\s,]+/); // split on space or comma
+            if (taxiTypes.includes(filter)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          } else if (filter === 'prime' || filter === 'standard') {
+            const taxiTypes = card.getAttribute('data-taxi').split(/[\s,]+/);
+            if (taxiTypes.includes(filter)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          }});
+          
+        // Sort by price if needed
+        if (filter === 'price-asc' || filter === 'price-desc') {
+          const toursGrid = stepContent.querySelector('.tours-grid');
+          const cards = Array.from(tourCards);
+          
+          cards.sort((a, b) => {
+            const priceA = parseInt(a.getAttribute('data-price'));
+            const priceB = parseInt(b.getAttribute('data-price'));
+            
+            if (filter === 'price-asc') {
+              return priceA - priceB;
+            } else {
+              return priceB - priceA;
+            }
+          });
+          
+          // Remove all cards
+          cards.forEach(card => card.remove());
+          
+          // Add sorted cards back
+          cards.forEach(card => toursGrid.appendChild(card));
+        }
+      });
+    });
+
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      const heroSection = document.querySelector('.hero');
+      
+      if (scrollPosition < window.innerHeight) {
+        heroSection.style.backgroundPositionY = `calc(50% + ${scrollPosition * 0.5}px)`;
+      }
+    });
+
+    // Add typing effect to hero title
+    const heroTitle = document.querySelector('.hero-content h1');
+    const originalText = heroTitle.textContent;
+    heroTitle.textContent = '';
+    
+    let i = 0;
+    function typeWriter() {
+      if (i < originalText.length) {
+        heroTitle.textContent += originalText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    
+    // Start typing effect when page loads
+    window.addEventListener('load', function() {
+      setTimeout(typeWriter, 500);
+    });
+
+    // Booking Steps Navigation
+    const steps = document.querySelectorAll('.step');
+    const stepContents = document.querySelectorAll('.step-content');
+    const nextButtons = document.querySelectorAll('.next-btn');
+    const prevButtons = document.querySelectorAll('.prev-btn');
+    
+    // Function to navigate to a specific step
+    function navigateToStep(stepNumber) {
+      // Update step indicators
+      steps.forEach((step, index) => {
+        if (index + 1 === stepNumber) {
+          step.classList.add('active');
+        } else {
+          step.classList.remove('active');
+        }
+      });
+      
+      // Show the correct step content
+      stepContents.forEach((content, index) => {
+        if (index + 1 === stepNumber) {
+          content.classList.add('active');
+          // Scroll to top of the step content
+          content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          content.classList.remove('active');
+        }
+      });
+    }
+    
+    // Next button click handlers
+    nextButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const nextStep = parseInt(this.getAttribute('data-step'));
+        navigateToStep(nextStep);
+      });
+    });
+    
+    // Previous button click handlers
+    prevButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const prevStep = parseInt(this.getAttribute('data-step'));
+        navigateToStep(prevStep);
+      });
+    });
+    
+    // Step indicator click handlers
+    steps.forEach((step, index) => {
+      step.addEventListener('click', function() {
+        navigateToStep(index + 1);
+      });
+    });
+    
+    // Complete booking button handler
+    document.getElementById('completeBookingBtn').addEventListener('click', function() {
+      // Redirect to cart page
+      window.location.href = 'addtocart.html';
+    });
+  </script>
+</body>
+</html>

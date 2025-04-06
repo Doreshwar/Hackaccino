@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tours - Sanchari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary-color: #3AADA8;
+      --dark-blue: #0a2540;
+      --light-blue: #1a3550;
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --text-gray: #777777;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text-gray);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .copyright{
+      margin-left: 41%;
+
+    }
+
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark-blue);
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .section-subtitle {
+      display: block;
+      font-style: italic;
+      color: var(--text-gray);
+      margin-bottom: 5px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+    }
+
+    .section-title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background-color: transparent;
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: 1px solid var(--white);
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--white);
+      color: var(--dark-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1000;
+      transition: var(--transition);
+      background-color: transparent;
+    }
+
+    header.scrolled {
+      background-color: var(--dark-blue);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      margin-left: -38px;
+      padding: 25px;
+      width: 250px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo h1 {
+      color: var(--white);
+      font-size: 24px;
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+
+    .logo span {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      margin-right: 20px;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      font-size: 14px;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Cart Icon in Header */
+    .cart-icon {
+      position: relative;
+      margin-left: 20px;
+    }
+
+    .cart-icon a {
+      color: var(--white);
+      font-size: 20px;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      font-size: 10px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 15px 25px;
+      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 2000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Hero Section */
+    .hero {
+      height: 50vh;
+      background: linear-gradient(to bottom, rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      padding-left: 50px;
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    /* Tours Section */
+    .tours-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .tours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .tour-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+      background-color: var(--white);
+    }
+
+    .tour-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .tour-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .tour-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .tour-card:hover .tour-image img {
+      transform: scale(1.1);
+    }
+
+    .tour-content {
+      padding: 20px;
+    }
+
+    .tour-destination {
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+      color: var(--text-gray);
+      margin-bottom: 5px;
+    }
+
+    .tour-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .tour-price {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .tour-description {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    .view-details {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+    }
+
+    .view-details i {
+      margin-left: 5px;
+    }
+
+    .view-details:hover {
+      background-color: #2c8a86;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 30px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links ul {
+      display: flex;
+    }
+
+    .footer-links ul li {
+      margin-left: 20px;
+    }
+
+    .footer-links ul li a {
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .footer-links ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+      .tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header .container {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      nav ul {
+        margin-right: 0;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .tours-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links ul {
+        margin-top: 20px;
+        justify-content: center;
+      }
+
+      .footer-links ul li:first-child {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .section-title {
+        font-size: 36px;
+      }
+
+      nav ul li {
+        margin-left: 15px;
+      }
+
+      .hero-content {
+        padding-left: 20px;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      display: flex;
+    }
+
+    .modal-content {
+      background-color: var(--white);
+      width: 90%;
+      max-width: 800px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      transform: translateY(50px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      padding: 20px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      position: relative;
+    }
+
+    .modal-header h3 {
+      color: var(--white);
+      margin-bottom: 0;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: var(--white);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 20px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-details {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+
+    .modal-detail {
+      text-align: center;
+      flex: 1;
+    }
+
+    .modal-detail i {
+      font-size: 24px;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .modal-detail span {
+      display: block;
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    .modal-detail strong {
+      display: block;
+      font-size: 16px;
+      color: var(--dark-blue);
+    }
+
+    .modal-footer {
+      padding: 20px;
+      background-color: var(--light-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-price {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    /* Filter Styles */
+    .filter-container {
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .filter-button {
+      padding: 8px 15px;
+      background-color: var(--light-gray);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    .filter-button:hover, .filter-button.active {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    /* Search Bar */
+    .search-container {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 20px;
+      padding-right: 50px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(58, 173, 168, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-gray);
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="1.png">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="userindex.html">Home</a></li>
+          <li><a href="userabout.html">About us</a></li>
+          <li><a href="tour.html" class="active">Tours</a></li>
+          <li><a href="userreview.html">Reviews</a></li>
+          <li><a href="usercontactus.html">Contact</a></li>
+        </ul>
+        <!-- Added wishlist and cart icons to header -->
+        <div class="cart-icon">
+          <a href="userdash.html#my-whislist"><i class="fas fa-heart"></i></a>
+          <span class="cart-count wishlist-count">0</span>
+        </div>
+        <div class="cart-icon">
+          <a href="addtocart.html"><i class="fas fa-shopping-cart"></i></a>
+          <span class="cart-count cart-count-number">0</span>
+        </div>
+        <div class="cart-icon">
+          <a href="userdash.html"><i class="fa-solid fa-user"></i></a>
+          
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="animate-text">Tours</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tours Section -->
+  <section class="tours-section" id="tours">
+    <div class="container">
+      <h2 class="section-title fade-in">Top Destinations</h2>
+      
+      <!-- Search and Filter -->
+      <div class="search-container fade-in">
+        <input type="text" class="search-input" placeholder="Search destinations...">
+        <i class="fas fa-search search-icon"></i>
+      </div>
+      
+      <div class="filter-container fade-in">
+        <button class="filter-button active" data-filter="all">All Destinations</button>
+       
+      </div>
+      
+      <div class="tours-grid">
+        <!-- •	Dehradun -->
+        <div class="tour-card fade-in" data-destination="maldives" data-region="asia" data-price="2350">
+          <div class="tour-image">
+            <img src="https://images.unsplash.com/photo-1660791601899-f79f14cc427d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGRlaHJhZHVuJTJDJTIwaW5kaWF8ZW58MHx8MHx8fDA%3D" alt="Maldives">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 07</div>
+            <h3 class="tour-title">Dehradun</h3>
+            <p class="tour-description">Dehradun, capital of Uttarakhand, lies in the scenic Doon Valley. Known for its climate and heritage, it's a hub for education and tourism. A perfect gateway to the Himalayas.</p>
+            <a href="dehra.html" class="view-details" data-tour="maldives">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- •	Haridwar -->
+        <div class="tour-card fade-in" data-destination="england" data-region="europe" data-price="1635">
+          <div class="tour-image">
+            <img src="https://images.unsplash.com/photo-1709078274279-12a6473bd4ab?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8SGFyaWR3YXIlMkMlMjBpbmRpYXxlbnwwfHwwfHx8MA%3D%3D" alt="England">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 08</div>
+            <h3 class="tour-title">Haridwar</h3>
+            <p class="tour-description">Haridwar, a sacred city on the Ganges, is famed for Ganga Aarti, Kumbh Mela, and spiritual vibrance. It draws millions and serves as a gateway to Rishikesh and Char Dham.</p>
+            <a href="#" class="view-details" data-tour="england">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Pauri Garhwal  -->
+        <div class="tour-card fade-in" data-destination="italy" data-region="europe" data-price="1550">
+          <div class="tour-image">
+            <img src="https://t.eucdn.in/tourism/lg/pauri-garhwal-3122902.webp" alt="Italy">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 12</div>
+            <h3 class="tour-title">Pauri Garhwal </h3>
+            <p class="tour-description">Pauri Garhwal, set in the Garhwal Himalayas, offers stunning views, ancient temples, and serenity. Ideal for nature lovers and pilgrims, it is a peaceful retreat and gateway to the Garhwal region</p>
+            <a href="#" class="view-details" data-tour="italy">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Tehri Garhwal -->
+        <div class="tour-card fade-in" data-destination="turkey" data-region="europe" data-price="1295">
+          <div class="tour-image">
+            <img src="https://thumbs.dreamstime.com/b/tehri-lake-25071425.jpg" alt="Turkey">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 09</div>
+            <h3 class="tour-title">Tehri Garhwal</h3>
+            <p class="tour-description">Tehri Garhwal, located in the Himalayas, is known for the Tehri Dam, scenic lakes, and spiritual sites. It offers adventure, tranquility, and serves as a gateway to Uttarakhand's higher Himalayas.</p>
+            <a href="#" class="view-details" data-tour="turkey">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Rudraprayag -->
+        <div class="tour-card fade-in" data-destination="france" data-region="europe" data-price="2250">
+          <div class="tour-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Kedarnath_Temple_in_Rainy_season.jpg" alt="France">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 13</div>
+            <h3 class="tour-title">Rudraprayag</h3>
+            <p class="tour-description">Rudraprayag, located at the confluence of Alaknanda and Mandakini rivers, is a serene town known for its spiritual significance and natural beauty. It serves as a gateway to Kedarnath.</p>
+            <a href="#" class="view-details" data-tour="france">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Chamoli -->
+        <div class="tour-card fade-in" data-destination="switzerland" data-region="europe" data-price="1425">
+          <div class="tour-image">
+            <img src="https://indiathrills.com/wp-content/uploads/2022/06/Auli-Lake-768x427.jpg" alt="Switzerland">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 11</div>
+            <h3 class="tour-title">Chamoli</h3>
+            <p class="tour-description">Chamoli, located in the Garhwal Himalayas, is known for its scenic beauty, spiritual significance, and adventure spots. Home to temples, valleys, and treks, it is a gateway to Badrinath and Hemkund Sahib.</p>
+            <a href="#" class="view-details" data-tour="switzerland">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Uttarkashi  -->
+        <div class="tour-card fade-in" data-destination="spain-madrid" data-region="europe" data-price="1425">
+          <div class="tour-image">
+            <img src="https://static.toiimg.com/thumb/width-600,height-400,msid-110122906.cms" alt="Spain Madrid">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 10</div>
+            <h3 class="tour-title">Uttarkashi</h3>
+            <p class="tour-description">Uttarkashi, nestled in the Garhwal Himalayas, is known for its serene beauty, sacred temples, and trekking routes. A spiritual hub on the Bhagirathi River, it is a gateway to Gangotri.</p>
+            <a href="#" class="view-details" data-tour="spain-madrid">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Almora -->
+        <div class="tour-card fade-in" data-destination="spain-barcelona" data-region="europe" data-price="1375">
+          <div class="tour-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/jageshwar-temple-almora-uttarakhand-hero?qlt=82&ts=1727160475881" alt="Spain Barcelona">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 01</div>
+            <h3 class="tour-title">Almora</h3>
+            <p class="tour-description">Almora, in the Kumaon Hills, is known for its scenic views, heritage, and ancient temples. A peaceful spot, it is ideal for nature lovers and those seeking spiritual calm.</p>
+            <a href="#" class="view-details" data-tour="spain-barcelona">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Nainital -->
+        <div class="tour-card fade-in" data-destination="switzerland" data-region="europe" data-price="1425">
+          <div class="tour-image">
+            <img src="https://scontent.fdel72-1.fna.fbcdn.net/v/t1.6435-9/41202471_10156147888224215_2834759049076015104_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=BEYWACYFsk0Q7kNvwHuoM1K&_nc_oc=Adm6Q_raT18JwgC2Nb51xYFBZNz3s_xtZR0I1p61qpkh6iCR4HrcOTgQxtbQDuXEbwU&_nc_zt=23&_nc_ht=scontent.fdel72-1.fna&_nc_gid=a-kKYwMMAnuLJYv_V-q_vg&oh=00_AYFE1xvN--Eq9KZKu0X1zq2WmgzSmexzFvqRX-a1AxO9RA&oe=6818C8FE" alt="Switzerland">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 04</div>
+            <h3 class="tour-title">Nainital</h3>
+            <p class="tour-description">Nainital, a charming hill station in Uttarakhand, is known for its scenic lake, pleasant climate, and colonial-era charm. Surrounded by mountains, it is perfect for boating, trekking, and peaceful getaways.</p>
+            <a href="#" class="view-details" data-tour="switzerland">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Pithoragarh -->
+        <div class="tour-card fade-in" data-destination="switzerland" data-region="europe" data-price="1425">
+          <div class="tour-image">
+            <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQHVLN_LzkyjK0ZL11qWR0qhUTLnhkER8VuUWUgayE_AfjTQsCeMrVT7dIaaRBA0NZg7A9vW4Xl4ql-1fhRRWB9vJGSibY5lm_xhNQsBw" alt="Switzerland">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 05</div>
+            <h3 class="tour-title">Pithoragarh</h3>
+            <p class="tour-description">Pithoragarh, nestled in the Kumaon Himalayas, is known for its scenic valleys, historic forts, and spiritual sites. With views of snow-covered peaks, it is a serene gateway to the Himalayas.</p>
+            <a href="#" class="view-details" data-tour="switzerland">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Bageshwar -->
+        <div class="tour-card fade-in" data-destination="switzerland" data-region="europe" data-price="1425">
+          <div class="tour-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Bagnath_Bageshwar_.jpg" alt="Switzerland">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 02</div>
+            <h3 class="tour-title">Bageshwar</h3>
+            <p class="tour-description">Bageshwar, nestled at the confluence of rivers Saryu and Gomti, is known for its scenic beauty and spiritual significance. Surrounded by hills, it is a gateway to treks and Himalayan adventures.</p>
+            <a href="#" class="view-details" data-tour="switzerland">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Champawat -->
+        <div class="tour-card fade-in" data-destination="switzerland" data-region="europe" data-price="1425">
+          <div class="tour-image">
+            <img src="https://www.india.com/wp-content/uploads/2024/10/road-2.jpg" alt="Switzerland">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK 03</div>
+            <h3 class="tour-title">Champawat</h3>
+            <p class="tour-description">Champawat, a historic town in Uttarakhand, is known for its ancient temples, natural beauty, and peaceful vibe. Surrounded by hills, it offers spirituality and scenic Himalayan views.</p>
+            <a href="#" class="view-details" data-tour="switzerland">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Udham Singh Nagar -->
+        <div class="tour-card fade-in" data-destination="brazil" data-region="americas" data-price="2075">
+          <div class="tour-image">
+            <img src="https://wandersky.in/wp-content/uploads/2023/08/Untitled-design-23.png" alt="Brazil">
+          </div>
+          <div class="tour-content">
+            <div class="tour-destination">UK-06</div>
+            <h3 class="tour-title">Udham Singh Nagar</h3>
+            <p class="tour-description">Udham Singh Nagar, located in the Terai region of Uttarakhand, is known for its fertile plains, vibrant agriculture, and industrial growth. A cultural melting pot, it's well-connected and rapidly developing.</p>
+            <a href="#" class="view-details" data-tour="brazil">VIEW DETAILS <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tour Details Modal -->
+  <div class="modal" id="tourModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Tour Details</h3>
+        <span class="modal-close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img id="modalImage" src="/placeholder.svg" alt="Tour Image">
+        </div>
+        <div class="modal-details">
+          <div class="modal-detail">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Duration</span>
+            <strong>7 Days</strong>
+          </div>
+          <div class="modal-detail">
+            <i class="fas fa-users"></i>
+            <span>Group Size</span>
+            <strong>Max 12</strong>
+          </div>
+          <div class="modal-detail">
+            <i class="fas fa-utensils"></i>
+            <span>Meals</span>
+            <strong>All Inclusive</strong>
+          </div>
+          <div class="modal-detail">
+            <i class="fas fa-hotel"></i>
+            <span>Accommodation</span>
+            <strong>4-5 Star Hotels</strong>
+          </div>
+        </div>
+        <h4>Tour Description</h4>
+        <p id="modalDescription">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
+        
+        <h4>Highlights</h4>
+        <ul id="modalHighlights">
+          <li><i class="fas fa-check-circle"></i> Visit iconic landmarks and attractions</li>
+          <li><i class="fas fa-check-circle"></i> Experience local culture and cuisine</li>
+          <li><i class="fas fa-check-circle"></i> Guided tours with expert local guides</li>
+          <li><i class="fas fa-check-circle"></i> Free time for personal exploration</li>
+          <li><i class="fas fa-check-circle"></i> Comfortable transportation throughout</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-price" id="modalPrice">$0.00</div>
+        <a href="#" class="btn">BOOK NOW</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        <p>Copyright © 2025 Sanchari</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('nav a, .footer-links a');
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href.startsWith('#') && href !== '#') {
+          e.preventDefault();
+          const targetSection = document.querySelector(href);
+          
+          if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 100;
+            
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Animate elements on scroll
+    const animateElements = document.querySelectorAll('.fade-in');
+    
+    function checkScroll() {
+      animateElements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    }
+    
+    // Call the animation function on scroll
+    window.addEventListener('scroll', checkScroll);
+    
+    // Call once on page load to animate elements already in view
+    window.addEventListener('load', checkScroll);
+
+    // Tour card hover effect
+    const tourCards = document.querySelectorAll('.tour-card');
+    
+    tourCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px)';
+        this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+        this.style.boxShadow = '';
+      });
+    });
+
+    
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-button');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        // Filter tour cards
+        tourCards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = 'block';
+          } else if (filter === 'europe') {
+            if (card.getAttribute('data-region') === 'europe') {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          } else if (filter === 'asia') {
+            if (card.getAttribute('data-region') === 'asia') {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          } else if (filter === 'americas') {
+            if (card.getAttribute('data-region') === 'americas') {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          } else if (filter === 'price-asc') {
+            // Show all cards for price sorting
+            card.style.display = 'block';
+          } else if (filter === 'price-desc') {
+            // Show all cards for price sorting
+            card.style.display = 'block';
+          }
+        });
+        
+        // Sort by price if needed
+        if (filter === 'price-asc' || filter === 'price-desc') {
+          const toursGrid = document.querySelector('.tours-grid');
+          const cards = Array.from(tourCards);
+          
+          cards.sort((a, b) => {
+            const priceA = parseInt(a.getAttribute('data-price'));
+            const priceB = parseInt(b.getAttribute('data-price'));
+            
+            if (filter === 'price-asc') {
+              return priceA - priceB;
+            } else {
+              return priceB - priceA;
+            }
+          });
+          
+          // Remove all cards
+          cards.forEach(card => card.remove());
+          
+          // Add sorted cards back
+          cards.forEach(card => toursGrid.appendChild(card));
+        }
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.querySelector('.search-input');
+    
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      
+      tourCards.forEach(card => {
+        const destination = card.getAttribute('data-destination').toLowerCase();
+        const title = card.querySelector('.tour-title').textContent.toLowerCase();
+        
+        if (destination.includes(searchTerm) || title.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      const heroSection = document.querySelector('.hero');
+      
+      if (scrollPosition < window.innerHeight) {
+        heroSection.style.backgroundPositionY = `calc(50% + ${scrollPosition * 0.5}px)`;
+      }
+    });
+
+    // Add typing effect to hero title
+    const heroTitle = document.querySelector('.hero-content h1');
+    const originalText = heroTitle.textContent;
+    heroTitle.textContent = '';
+    
+    let i = 0;
+    function typeWriter() {
+      if (i < originalText.length) {
+        heroTitle.textContent += originalText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    
+    // Start typing effect when page loads
+    window.addEventListener('load', function() {
+      setTimeout(typeWriter, 500);
+    });
+  </script>
+</body>
+</html>
